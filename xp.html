@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XP و Leaderboard | سه گنگ</title>
+<meta name="description" content="امتیاز، سطح و رتبه‌بندی سه گنگ؛ مهدی، کارن و امیر عباس">
+<meta name="theme-color" content="#070615">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Orbitron:wght@600;800&family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+<script>
+try{var t=JSON.parse(localStorage.getItem('g3:theme'));if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}
+</script>
+<style>
+:root{
+  --bg:#070615;--bg2:#110d2e;--glass:rgba(255,255,255,.065);--glass2:rgba(255,255,255,.11);--stroke:rgba(255,255,255,.14);
+  --text:#f3f1ff;--muted:#aaa7d3;--shadow:0 18px 50px rgba(0,0,0,.45);--ga:.55;
+  --mahdi:#22e6ff;--karen:#ff3dac;--amir:#b7ff3c;--day:#8b5cff;
+  --ok:#38f2a0;--warn:#ffb020;--bad:#ff5470;
+  --font:'Vazirmatn',Tahoma,sans-serif;--display:'Lalezar','Vazirmatn',Tahoma,sans-serif;--digits:'Orbitron','Vazirmatn',monospace;
+}
+[data-theme=light]{
+  --bg:#f4f2ff;--bg2:#e7e2ff;--glass:rgba(255,255,255,.74);--glass2:rgba(255,255,255,.95);--stroke:rgba(70,50,150,.18);
+  --text:#1a1540;--muted:#5d5992;--shadow:0 14px 36px rgba(70,50,160,.18);--ga:.12;
+  --mahdi:#0092b3;--karen:#d4167c;--amir:#4c9500;--day:#6d3df5;--ok:#0f9d63;--warn:#c47a00;--bad:#d62a48;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.8;min-height:100vh;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(620px 420px at 92% -4%,color-mix(in srgb,var(--mahdi) 26%,transparent),transparent 70%),
+  radial-gradient(640px 480px at 4% 32%,color-mix(in srgb,var(--karen) 22%,transparent),transparent 70%),
+  radial-gradient(720px 520px at 72% 106%,color-mix(in srgb,var(--amir) 18%,transparent),transparent 70%),
+  linear-gradient(180deg,var(--bg),var(--bg2))}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.22;
+  background-image:linear-gradient(var(--stroke) 1px,transparent 1px),linear-gradient(90deg,var(--stroke) 1px,transparent 1px);
+  background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 50% 0,#000,transparent 75%);mask-image:radial-gradient(ellipse at 50% 0,#000,transparent 75%)}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--mahdi);outline-offset:3px;border-radius:8px}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+.sec{padding:34px 0}
+.glass{background:var(--glass);border:1px solid var(--stroke);border-radius:22px;box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.08);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%)}
+.h{font-family:var(--display);font-weight:400;font-size:clamp(1.7rem,4vw,2.4rem);margin:0 0 18px;display:flex;align-items:center;gap:12px}
+.tri{display:inline-flex;gap:4px}
+.tri::before,.tri::after,.tri i{content:"";width:9px;height:26px;border-radius:5px;transform:skewX(-14deg)}
+.tri::before{background:var(--mahdi);box-shadow:0 0 14px color-mix(in srgb,var(--mahdi) calc(var(--ga)*100%),transparent)}
+.tri i{background:var(--karen);box-shadow:0 0 14px color-mix(in srgb,var(--karen) calc(var(--ga)*100%),transparent)}
+.tri::after{background:var(--amir);box-shadow:0 0 14px color-mix(in srgb,var(--amir) calc(var(--ga)*100%),transparent)}
+.btn{display:inline-block;border:1px solid var(--stroke);background:var(--glass2);padding:9px 16px;border-radius:14px;font-weight:600;transition:transform .15s,box-shadow .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px);border-color:var(--day);box-shadow:0 8px 22px color-mix(in srgb,var(--day) 30%,transparent)}
+.btn:active{transform:translateY(0)}
+.btn.main{background:linear-gradient(135deg,var(--mahdi),var(--karen));color:#080616;border:0}
+.btn.ghost{background:transparent}
+.btn.sm{padding:5px 12px;font-size:.88rem;border-radius:11px}
+input[type=number]{background:var(--glass);border:1px solid var(--stroke);border-radius:12px;padding:9px 12px;min-width:0;color:var(--text)}
+.bar{height:8px;border-radius:99px;background:var(--glass2);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--c,var(--day)),color-mix(in srgb,var(--c,var(--day)) 55%,#fff));transition:width .8s cubic-bezier(.2,.9,.2,1)}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--stroke)}
+.top .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px;background:none;overflow:visible;border-radius:0}
+.logo{display:flex;align-items:center;gap:10px}
+.rings{position:relative;width:36px;height:36px}
+.rings i{position:absolute;inset:0;border-radius:50%;border:3px solid var(--mahdi);box-shadow:0 0 12px color-mix(in srgb,var(--mahdi) calc(var(--ga)*100%),transparent)}
+.rings i:nth-child(2){border-color:var(--karen);transform:translateX(9px) scale(.92);box-shadow:0 0 12px color-mix(in srgb,var(--karen) calc(var(--ga)*100%),transparent)}
+.rings i:nth-child(3){border-color:var(--amir);transform:translateX(-9px) scale(.92);box-shadow:0 0 12px color-mix(in srgb,var(--amir) calc(var(--ga)*100%),transparent)}
+.logo b{font-family:var(--digits);font-weight:800;letter-spacing:.06em;font-size:1.05rem}
+.logo small{font-family:var(--display);font-size:1.2rem;color:var(--muted)}
+.tools{display:flex;gap:6px;align-items:center}
+.ico{position:relative;width:42px;height:42px;border-radius:14px;border:1px solid var(--stroke);background:var(--glass);font-size:1.15rem;display:grid;place-items:center;transition:.2s}
+.ico:hover{border-color:var(--day);transform:translateY(-2px)}
+@media(max-width:520px){.logo small{display:none}.ico{width:38px;height:38px}.tools{gap:4px}}
+
+/* intro */
+.intro{padding:46px 0 6px}
+.intro h1{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,8vw,4.4rem);line-height:1.2;margin:0;background:linear-gradient(100deg,var(--mahdi),var(--karen) 50%,var(--amir));-webkit-background-clip:text;background-clip:text;color:transparent}
+.intro p{margin:10px 0 0;color:var(--muted);font-size:1.05rem}
+
+/* gang */
+.members{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}
+.mcard{--rx:0deg;--ry:0deg;padding:26px 22px;text-align:center;position:relative;opacity:0;transform:translateY(34px) scale(.95);transition:opacity .7s,transform .7s cubic-bezier(.2,.9,.2,1);transition-delay:calc(var(--i)*.14s);border-color:color-mix(in srgb,var(--c) 45%,var(--stroke))}
+.mcard.in{opacity:1;transform:perspective(900px) rotateX(var(--rx)) rotateY(var(--ry))}
+.mcard.in.tilting{transition:transform .08s;transition-delay:0s}
+.mcard:hover{box-shadow:0 0 44px color-mix(in srgb,var(--c) calc(var(--ga)*100%),transparent),var(--shadow)}
+.crown{position:absolute;top:12px;right:16px;font-size:1.3rem}
+.avatar{width:112px;height:112px;margin:0 auto 12px;border-radius:50%;padding:5px;background:conic-gradient(var(--c),transparent 40%,var(--c));display:grid;place-items:center;box-shadow:0 0 30px color-mix(in srgb,var(--c) calc(var(--ga)*100%),transparent)}
+.avatar span{width:100%;height:100%;border-radius:50%;display:grid;place-items:center;font-size:3.2rem;background:radial-gradient(circle at 30% 25%,color-mix(in srgb,var(--c) 40%,var(--bg2)),var(--bg2))}
+.mcard h3{font-family:var(--display);font-weight:400;font-size:1.65rem;margin:0}
+.mcard .nick{margin:0;color:var(--c);font-weight:700}
+.mcard .desc{color:var(--muted);margin:10px 0 14px;font-size:.96rem}
+.lvl{text-align:right;font-size:.9rem}
+.lvl .bar{margin:6px 0 2px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:12px}
+.bd{font-size:1.25rem;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--glass2);border:1px solid var(--stroke)}
+.bd.off{filter:grayscale(1);opacity:.28}
+.bd.on{border-color:var(--c)}
+
+/* xp */
+.xpgrid{display:grid;gap:18px}
+@media(min-width:900px){.xpgrid{grid-template-columns:.9fr 1.1fr}}
+.panel{padding:22px}
+.panel h3{margin:0 0 12px;font-family:var(--display);font-weight:400;font-size:1.5rem}
+.seg{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.seg button{flex:1;min-width:90px;padding:9px 10px;border-radius:14px;border:1px solid var(--stroke);background:var(--glass);font-weight:700;transition:.2s}
+.seg button[aria-checked=true]{background:color-mix(in srgb,var(--c) 22%,transparent);border-color:var(--c);box-shadow:0 0 20px color-mix(in srgb,var(--c) calc(var(--ga)*100%),transparent)}
+.acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.acts button{padding:10px;border-radius:14px;border:1px solid var(--stroke);background:var(--glass);text-align:right;transition:.2s}
+.acts button:hover{border-color:var(--day);transform:translateY(-2px)}
+.acts b{display:block;color:var(--ok)}
+.custom{display:flex;gap:8px;margin:14px 0 10px;flex-wrap:wrap}
+.custom input{width:100px}
+.row2{display:flex;gap:8px;flex-wrap:wrap}
+.podium{display:flex;align-items:flex-end;justify-content:center;gap:12px;height:290px;margin-bottom:16px}
+.pod{flex:1;max-width:140px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;gap:2px;height:100%}
+.pod .nm{font-weight:800}
+.pod .px{font-family:var(--digits);font-size:.85rem;color:var(--muted)}
+.pod-bar{width:100%;border-radius:16px 16px 6px 6px;background:linear-gradient(180deg,var(--c),color-mix(in srgb,var(--c) 18%,transparent));box-shadow:0 0 28px color-mix(in srgb,var(--c) calc(var(--ga)*100%),transparent);transition:height .9s cubic-bezier(.2,.9,.2,1);display:grid;place-items:start center;padding-top:8px;font-size:1.7rem;min-height:56px}
+.rows{display:flex;flex-direction:column;gap:10px}
+.lrow{display:grid;grid-template-columns:auto auto 1fr auto;gap:12px;align-items:center;padding:10px 14px;border-radius:16px;background:var(--glass);border:1px solid var(--stroke);transition:background .4s}
+.lrow.flash{background:color-mix(in srgb,var(--c) 28%,transparent)}
+.lrow .md{font-size:1.5rem}
+.lrow .av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 25%,var(--bg2));border:2px solid var(--c);font-size:1.3rem}
+.lrow b{display:block;line-height:1.4}
+.lrow small{color:var(--muted)}
+.lrow .xv{font-family:var(--digits);font-weight:800;color:var(--c);font-size:.95rem}
+
+/* achievements & history */
+.achs{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin:14px 0 0}
+.ach{display:flex;gap:10px;align-items:center;padding:12px;border-radius:16px;background:var(--glass);border:1px solid var(--stroke)}
+.ach .ai{font-size:1.7rem;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--glass2);flex:none}
+.ach b{display:block;line-height:1.4}
+.ach small{color:var(--muted);line-height:1.4;display:block}
+.ach.off{opacity:.5}
+.ach.off .ai{filter:grayscale(1)}
+.ach.on{border-color:var(--ok)}
+.sgrid{display:grid;gap:18px;margin-top:18px}
+@media(min-width:900px){.sgrid{grid-template-columns:1fr 1fr}}
+.hist{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.hist:empty::after{content:attr(data-empty);color:var(--muted);text-align:center;padding:18px;border:1px dashed var(--stroke);border-radius:14px}
+.hist li{display:flex;gap:12px;padding:10px 14px;border-radius:14px;background:var(--glass);border:1px solid var(--stroke);align-items:flex-start}
+.hist .hi{font-size:1.3rem}
+.hist p{margin:0;line-height:1.6}
+.hist small{color:var(--muted)}
+footer{padding:40px 0 60px;text-align:center;color:var(--muted)}
+footer b{font-family:var(--digits);color:var(--text);letter-spacing:.08em}
+
+/* overlays */
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:90}
+#toasts{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:100;display:grid;gap:8px;width:min(92vw,420px);pointer-events:none}
+.toast{padding:11px 16px;border-radius:14px;background:var(--bg2);border:1px solid var(--day);box-shadow:var(--shadow);animation:tin .35s both;font-weight:600}
+.toast.out{animation:tout .3s both}
+@keyframes tin{from{opacity:0;transform:translateY(14px)}}
+@keyframes tout{to{opacity:0;transform:translateY(10px)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}.mcard{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<noscript><p style="padding:20px;text-align:center">برای دیدن این صفحه، جاوااسکریپت رو روشن کن.</p></noscript>
+
+<header class="top">
+  <div class="wrap bar">
+    <a href="index.html" class="logo" aria-label="سه گنگ؛ برگشت به سایت اصلی">
+      <span class="rings"><i></i><i></i><i></i></span><b>3 GANG</b><small>سه گنگ</small>
+    </a>
+    <div class="tools">
+      <a class="btn sm" href="index.html">← سایت اصلی</a>
+      <button class="ico" id="btnTheme" title="تغییر تم" aria-label="تغییر تم">🌙</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="wrap intro">
+  <h1>XP و Leaderboard</h1>
+  <p>امتیاز بده، سطح بگیر و ببین کدوم عضو گنگ جلوئه. همه‌چیز فقط تو مرورگر خودت ذخیره می‌شه و به هیچ دیتابیسی وصل نیست.</p>
+</section>
+
+<section id="gang" class="wrap sec">
+  <h2 class="h"><span class="tri"><i></i></span>سطح و پیشرفت</h2>
+  <div class="members" id="members"></div>
+</section>
+
+<section id="xp" class="wrap sec">
+  <h2 class="h"><span class="tri"><i></i></span>ثبت امتیاز و رتبه‌بندی</h2>
+  <div class="xpgrid">
+    <div class="glass panel">
+      <h3>ثبت امتیاز</h3>
+      <div class="seg" id="whoSeg" role="radiogroup" aria-label="انتخاب عضو"></div>
+      <div class="acts" id="acts"></div>
+      <div class="custom">
+        <input type="number" id="xpCustom" min="1" max="500" value="10" aria-label="مقدار XP دلخواه">
+        <button class="btn" id="xpAdd" type="button">➕ افزودن</button>
+        <button class="btn" id="xpSub" type="button">➖ کم کردن</button>
+      </div>
+      <div class="row2">
+        <button class="btn main" id="checkin" type="button">🔥 ورود روزانه</button>
+        <button class="btn ghost" id="xpReset" type="button">ریست XP</button>
+      </div>
+    </div>
+    <div class="glass panel">
+      <h3>رتبه‌بندی</h3>
+      <div class="podium" id="podium"></div>
+      <div class="rows" id="rows"></div>
+    </div>
+  </div>
+</section>
+
+<section id="extra" class="wrap sec">
+  <h2 class="h"><span class="tri"><i></i></span>دستاوردها و رویدادها</h2>
+  <div class="sgrid">
+    <div class="glass panel">
+      <h3>🏆 دستاوردها <small id="achCount" style="font-family:var(--font);color:var(--muted);font-size:1rem"></small></h3>
+      <div class="achs" id="achs"></div>
+    </div>
+    <div class="glass panel">
+      <h3>🕒 آخرین رویدادها</h3>
+      <ul class="hist" id="hist" data-empty="هنوز رویدادی ثبت نشده."></ul>
+      <div class="row2" style="margin-top:14px">
+        <button class="btn" id="expBtn" type="button">💾 پشتیبان‌گیری</button>
+        <button class="btn" id="impBtn" type="button">📥 بازیابی</button>
+        <input type="file" id="impFile" accept="application/json" hidden>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><b>3 GANG — Karen × Mehdi × Amir Abbas</b><p style="margin:6px 0 0">سه دوست، سه دانش‌آموز، یک گنگ 😎</p></div></footer>
+
+<canvas id="fx" aria-hidden="true"></canvas>
+<div id="toasts" role="status" aria-live="polite"></div>
+
+<script>
+(()=>{
+'use strict';
+/* ---------- helpers ---------- */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const fa=x=>String(x).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pad=n=>String(n).padStart(2,'0');
+const iso=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const rnd=a=>a[Math.floor(Math.random()*a.length)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+// فقط localStorage مرورگر؛ هیچ دیتابیس یا سروری درگیر نیست
+const store={get(k,d){try{const v=localStorage.getItem('g3:'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('g3:'+k,JSON.stringify(v))}catch(e){}}};
+
+/* ---------- data ---------- */
+const M=[
+ {id:'mahdi',name:'مهدی فرهمندزاد',short:'مهدی',nick:'دوست کارن و امیر عباس',c:'var(--mahdi)',e:'🧢',desc:'ضلع آبی گنگ؛ همیشه یه نقشه‌ی خفن برای عشق و حال تو آستینش داره.'},
+ {id:'karen',name:'کارن قادرانداز',short:'کارن',nick:'دوست مهدی و امیر عباس',c:'var(--karen)',e:'🎧',desc:'ضلع صورتی گنگ؛ هر جا پیداش بشه، جمع گرم می‌شه.'},
+ {id:'amir',name:'امیر عباس میر هاشمی',short:'امیر عباس',nick:'دوست کارن و مهدی',c:'var(--amir)',e:'🎮',desc:'ضلع سبز گنگ؛ همیشه آماده‌ی ماجراجویی و یه دست بازی.'}
+];
+const TITLES=['تازه‌وارد','شاگرد گنگ','جنگجو','استاد','افسانه','اسطوره','خدای گنگ'];
+const ACTS=[{i:'✅',t:'تکلیف انجام شد',x:15},{i:'📚',t:'مطالعه',x:10},{i:'🤝',t:'کمک به رفیق',x:10,k:'help'},{i:'🏅',t:'نمره‌ی عالی',x:30,k:'grade'},{i:'⚽',t:'ورزش',x:10},{i:'🎁',t:'جایزه‌ی ویژه',x:50}];
+
+/* ---------- state ---------- */
+const S={
+ theme:store.get('theme','dark'),
+ xp:Object.assign({mahdi:100,karen:100,amir:100},store.get('xp',{})),
+ acts:Object.assign({mahdi:{},karen:{},amir:{}},store.get('acts',{})),
+ chk:store.get('chk',{}),ach:store.get('ach',{}),
+ log:store.get('xplog',[]),ctr:store.get('xpctr',{}),
+ sel:'mahdi'
+};
+const c=k=>S.ctr[k]||0;
+const lvl=x=>Math.floor(x/100)+1;
+const bump=(k,n=1)=>{S.ctr[k]=c(k)+n;store.set('xpctr',S.ctr);checkAch();};
+const titleOf=l=>TITLES[Math.min(l-1,TITLES.length-1)];
+
+/* ---------- toast / log ---------- */
+function toast(msg){const t=document.createElement('div');t.className='toast';t.textContent=msg;$('#toasts').appendChild(t);setTimeout(()=>{t.classList.add('out');setTimeout(()=>t.remove(),320)},3000);}
+function addLog(icon,text){S.log.unshift({icon,text,t:Date.now()});S.log=S.log.slice(0,30);store.set('xplog',S.log);renderLog();}
+function renderLog(){
+  $('#hist').innerHTML=S.log.slice(0,10).map(l=>`<li><span class="hi">${l.icon}</span><div><p>${esc(l.text)}</p><small>${fa(new Date(l.t).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}))}</small></div></li>`).join('');
+}
+
+/* ---------- theme ---------- */
+function applyTheme(){document.documentElement.setAttribute('data-theme',S.theme);$('#btnTheme').textContent=S.theme==='dark'?'🌙':'☀️';document.querySelector('meta[name=theme-color]').content=S.theme==='dark'?'#070615':'#f4f2ff';}
+function toggleTheme(){S.theme=S.theme==='dark'?'light':'dark';store.set('theme',S.theme);applyTheme();}
+
+/* ---------- members ---------- */
+function badgesFor(id){
+  const x=S.xp[id],a=S.acts[id]||{},k=S.chk[id]||{};
+  return [
+    {i:'🥉',t:'جوجه‌گنگ (۱۰۰ XP)',on:x>=100},{i:'🥈',t:'نیم‌خدا (۳۰۰ XP)',on:x>=300},{i:'🥇',t:'قهرمان (۶۰۰ XP)',on:x>=600},{i:'💎',t:'افسانه (۱۰۰۰ XP)',on:x>=1000},
+    {i:'🔥',t:'استریک ۳ روزه',on:(k.streak||0)>=3},{i:'🤝',t:'رفیق‌یار (۳ کمک)',on:(a.help||0)>=3},{i:'🏅',t:'نمره‌ی طلایی (۲ بار)',on:(a.grade||0)>=2}
+  ];
+}
+const badgeHTML=id=>badgesFor(id).map(b=>`<span class="bd ${b.on?'on':'off'}" title="${b.t}" aria-label="${b.t}${b.on?'':' (قفل)'}">${b.i}</span>`).join('');
+function buildMembers(){
+  $('#members').innerHTML=M.map((m,k)=>`<article class="glass mcard" data-id="${m.id}" style="--c:${m.c};--i:${k}"><span class="crown">👑</span><div class="avatar"><span>${m.e}</span></div><h3>${m.name}</h3><p class="nick">«${m.nick}»</p><p class="desc">${m.desc}</p><div class="lvl"><div class="lv"></div><div class="bar" style="--c:${m.c}"><i></i></div><small class="xt"></small></div><div class="badges"></div></article>`).join('');
+  const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2}):null;
+  $$('.mcard').forEach(el=>{
+    io?io.observe(el):el.classList.add('in');
+    if(reduce)return;
+    el.addEventListener('pointermove',ev=>{if(ev.pointerType==='touch')return;const r=el.getBoundingClientRect();const x=(ev.clientX-r.left)/r.width-.5,y=(ev.clientY-r.top)/r.height-.5;el.classList.add('tilting');el.style.setProperty('--ry',(x*10)+'deg');el.style.setProperty('--rx',(-y*10)+'deg');});
+    el.addEventListener('pointerleave',()=>{el.classList.remove('tilting');el.style.setProperty('--ry','0deg');el.style.setProperty('--rx','0deg');});
+  });
+}
+function renderMembers(){
+  M.forEach(m=>{
+    const el=$(`.mcard[data-id=${m.id}]`),x=S.xp[m.id],l=lvl(x);
+    el.querySelector('.lv').textContent=`سطح ${fa(l)} · ${titleOf(l)}`;
+    el.querySelector('.bar i').style.width=(x%100)+'%';
+    el.querySelector('.xt').textContent=`${fa(x)} XP — ${fa(100-x%100)} تا سطح بعدی`;
+    el.querySelector('.badges').innerHTML=badgeHTML(m.id);
+  });
+}
+
+/* ---------- XP / leaderboard ---------- */
+function buildXP(){
+  $('#whoSeg').innerHTML=M.map(m=>`<button type="button" role="radio" data-id="${m.id}" style="--c:${m.c}" aria-checked="${m.id===S.sel}">${m.e} ${m.short}</button>`).join('');
+  $('#acts').innerHTML=ACTS.map((a,k)=>`<button type="button" data-k="${k}">${a.i} ${a.t}<b>+${fa(a.x)} XP</b></button>`).join('');
+  $('#podium').innerHTML=M.map(m=>`<div class="pod" data-id="${m.id}" style="--c:${m.c}"><span class="nm">${m.short}</span><span class="px"></span><div class="pod-bar"></div></div>`).join('');
+  $('#rows').innerHTML=M.map(m=>`<div class="lrow" data-id="${m.id}" style="--c:${m.c}"><span class="md"></span><span class="av">${m.e}</span><div><b>${m.name}</b><small class="ls"></small></div><span class="xv" data-v="0">0 XP</span></div>`).join('');
+  $('#whoSeg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S.sel=b.dataset.id;$$('#whoSeg button').forEach(x=>x.setAttribute('aria-checked',x===b));});
+  $('#acts').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const a=ACTS[b.dataset.k];if(a.k){S.acts[S.sel][a.k]=(S.acts[S.sel][a.k]||0)+1;store.set('acts',S.acts);}addXP(S.sel,a.x,a.t);bump('xpActs');});
+  const amt=()=>Math.max(1,Math.min(500,parseInt($('#xpCustom').value)||0));
+  $('#xpAdd').onclick=()=>{const n=amt();addXP(S.sel,n,'امتیاز دلخواه');bump('xpActs');};
+  $('#xpSub').onclick=()=>addXP(S.sel,-amt(),'کم شدن امتیاز');
+  $('#checkin').onclick=checkin;
+  $('#xpReset').onclick=()=>{if(confirm('XP هر سه نفر به ۱۰۰ برگرده و نشان‌ها و دستاوردها هم ریست بشن؟')){
+    S.xp={mahdi:100,karen:100,amir:100};S.acts={mahdi:{},karen:{},amir:{}};S.chk={};S.ach={};S.ctr={};S.log=[];
+    store.set('xp',S.xp);store.set('acts',S.acts);store.set('chk',S.chk);store.set('ach',S.ach);store.set('xpctr',S.ctr);store.set('xplog',S.log);
+    renderAll();toast('XP ریست شد');}};
+}
+const countTo=(el,to)=>{const from=+el.dataset.v||0;el.dataset.v=to;if(from===to||reduce){el.textContent=fa(to)+' XP';return;}const t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/800),v=Math.round(from+(to-from)*(1-Math.pow(1-p,3)));el.textContent=fa(v)+' XP';if(p<1)requestAnimationFrame(f)})(t0);};
+function renderBoard(){
+  const rank=[...M].sort((a,b)=>S.xp[b.id]-S.xp[a.id]),max=Math.max(...M.map(m=>S.xp[m.id]),1),medal=['🥇','🥈','🥉'];
+  rank.forEach((m,r)=>{
+    const p=$(`.pod[data-id=${m.id}]`),row=$(`.lrow[data-id=${m.id}]`),x=S.xp[m.id],l=lvl(x);
+    p.style.order=[2,1,3][r];p.querySelector('.pod-bar').style.height=(56+(x/max)*170)+'px';p.querySelector('.pod-bar').textContent=medal[r];
+    countTo(p.querySelector('.px'),x);
+    row.style.order=r;row.querySelector('.md').textContent=medal[r];row.querySelector('.ls').textContent=`سطح ${fa(l)} · ${titleOf(l)}`;
+    countTo(row.querySelector('.xv'),x);
+  });
+}
+function addXP(id,n,reason){
+  const m=M.find(x=>x.id===id),before=S.xp[id];
+  S.xp[id]=Math.max(0,before+n);store.set('xp',S.xp);
+  const row=$(`.lrow[data-id=${id}]`);if(row){row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),700);}
+  toast(`${n>=0?'⭐ +':'⚠️ '}${fa(n)} XP برای ${m.short}`);
+  addLog(n>=0?'⭐':'⚠️',`${m.short}: ${n>=0?'+':''}${fa(n)} XP — ${reason}`);
+  renderBoard();renderMembers();
+  if(lvl(S.xp[id])>lvl(before)){toast(`🆙 ${m.short} رفت سطح ${fa(lvl(S.xp[id]))}!`);confetti(80);}
+  checkAch();
+}
+function checkin(){
+  const m=M.find(x=>x.id===S.sel),today=iso(new Date()),y=new Date();y.setDate(y.getDate()-1);
+  const k=S.chk[m.id]||{last:'',streak:0};
+  if(k.last===today){toast(`${m.short} امروز ورود روزانه‌ش رو گرفته ✔️`);return;}
+  k.streak=k.last===iso(y)?k.streak+1:1;k.last=today;S.chk[m.id]=k;store.set('chk',S.chk);
+  addXP(m.id,5+Math.min(k.streak-1,5)*2,`ورود روزانه (استریک ${fa(k.streak)})`);bump('xpActs');
+}
+
+/* ---------- achievements ---------- */
+const ACH=[
+ {id:'first',i:'⭐',t:'اولین XP',d:'یه بار XP ثبت کن',f:()=>c('xpActs')>=1},
+ {id:'lv3',i:'🆙',t:'ارتقا',d:'یکی به سطح ۳ برسه',f:()=>M.some(m=>lvl(S.xp[m.id])>=3)},
+ {id:'lv5',i:'🌟',t:'اسطوره',d:'یکی به سطح ۵ برسه',f:()=>M.some(m=>lvl(S.xp[m.id])>=5)},
+ {id:'team',i:'🤝',t:'تیم کامل',d:'هر سه نفر بالای ۲۰۰ XP',f:()=>M.every(m=>S.xp[m.id]>=200)},
+ {id:'streak',i:'🔥',t:'پایدار',d:'استریک ۳ روزه',f:()=>M.some(m=>(S.chk[m.id]||{}).streak>=3)},
+ {id:'help',i:'🫶',t:'رفیق‌یار',d:'۳ بار کمک به رفیق ثبت کن',f:()=>M.some(m=>(S.acts[m.id]||{}).help>=3)},
+ {id:'grade',i:'🏅',t:'نمره‌ی طلایی',d:'۲ بار نمره‌ی عالی ثبت کن',f:()=>M.some(m=>(S.acts[m.id]||{}).grade>=2)},
+ {id:'k1000',i:'💎',t:'هزارتایی',d:'مجموع XP به ۱۰۰۰ برسه',f:()=>M.reduce((a,m)=>a+S.xp[m.id],0)>=1000}
+];
+function checkAch(){
+  let any=false;
+  ACH.forEach(a=>{if(!S.ach[a.id]&&a.f()){S.ach[a.id]=Date.now();any=true;toast(`🏆 دستاورد جدید: ${a.t}`);S.log.unshift({icon:'🏆',text:`دستاورد جدید: ${a.t}`,t:Date.now()});}});
+  if(any){S.log=S.log.slice(0,30);store.set('xplog',S.log);store.set('ach',S.ach);renderAch();renderLog();}
+}
+function renderAch(){
+  $('#achCount').textContent=`(${fa(Object.keys(S.ach).length)} از ${fa(ACH.length)})`;
+  $('#achs').innerHTML=ACH.map(a=>`<div class="ach ${S.ach[a.id]?'on':'off'}"><span class="ai">${a.i}</span><div><b>${a.t}</b><small>${a.d}</small></div></div>`).join('');
+}
+
+/* ---------- confetti ---------- */
+let parts_=[],raf=0;
+function confetti(n=140){
+  if(reduce)return;
+  const cv=$('#fx'),ctx=cv.getContext('2d');cv.width=innerWidth;cv.height=innerHeight;
+  const cols=['#22e6ff','#ff3dac','#b7ff3c','#ffb020','#8b6cff'];
+  for(let k=0;k<n;k++)parts_.push({x:innerWidth/2+(Math.random()-.5)*innerWidth*.5,y:innerHeight*.35,vx:(Math.random()-.5)*14,vy:-Math.random()*13-3,w:6+Math.random()*7,h:4+Math.random()*6,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:rnd(cols),life:0});
+  if(raf)return;
+  (function loop(){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    parts_.forEach(p=>{p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.vx*=.99;p.r+=p.vr;p.life++;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.fillStyle=p.c;ctx.globalAlpha=Math.max(0,1-p.life/170);ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore();});
+    parts_=parts_.filter(p=>p.life<170&&p.y<cv.height+20);
+    if(parts_.length){raf=requestAnimationFrame(loop)}else{raf=0;ctx.clearRect(0,0,cv.width,cv.height)}
+  })();
+}
+
+/* ---------- backup (فقط داده‌های XP) ---------- */
+const KEYS=['xp','acts','chk','ach','xplog','xpctr'];
+function exportData(){const o={};KEYS.forEach(k=>o[k]=store.get(k,null));const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(o,null,2)],{type:'application/json'}));a.download='3gang-xp-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast('💾 فایل پشتیبان ساخته شد');}
+function importData(file){const r=new FileReader();r.onload=()=>{try{const o=JSON.parse(r.result);if(!o||typeof o!=='object')throw 0;KEYS.forEach(k=>{if(o[k]!=null)store.set(k,o[k])});toast('📥 بازیابی شد؛ در حال بارگذاری مجدد...');setTimeout(()=>location.reload(),900);}catch(e){toast('⚠️ فایل معتبر نیست');}};r.readAsText(file);}
+
+/* ---------- init ---------- */
+function renderAll(){renderBoard();renderMembers();renderAch();renderLog();}
+function init(){
+  applyTheme();buildMembers();buildXP();
+  $('#btnTheme').onclick=toggleTheme;
+  $('#expBtn').onclick=exportData;$('#impBtn').onclick=()=>$('#impFile').click();$('#impFile').onchange=e=>e.target.files[0]&&importData(e.target.files[0]);
+  renderAll();checkAch();
+}
+init();
+})();
+</script>
+</body>
+</html>
