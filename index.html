@@ -86,7 +86,7 @@ body.gangmode .rings{animation:spin 3s linear infinite}
 .ico .badge:empty,.ico .badge[data-n="0"]{display:none}
 .mnav{display:none;flex-direction:column;padding:8px 16px 16px;gap:4px;border-top:1px solid var(--stroke)}
 .mnav.open{display:flex}
-@media(min-width:1120px){.nav{display:flex}.menu-btn{display:none}.mnav,.mnav.open{display:none}}
+@media(min-width:1240px){.nav{display:flex}.menu-btn{display:none}.mnav,.mnav.open{display:none}}
 @media(max-width:520px){.logo small{display:none}.ico{width:38px;height:38px}.tools{gap:4px}#btnKeys{display:none}}
 
 /* hero */
@@ -232,6 +232,110 @@ details.set summary{cursor:pointer;font-weight:700}
 .hw.over:not(.done){border-color:var(--bad)}
 .hw.over:not(.done) small{color:var(--bad);font-weight:700}
 .hwa{display:flex;gap:4px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+
+/* quiz */
+.qnote{margin:0 0 14px;color:var(--muted)}
+.qmodes{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.qmode{display:flex;flex-direction:column;gap:2px;text-align:right;padding:14px;border-radius:16px;border:1px solid var(--stroke);background:var(--glass);transition:.2s}
+.qmode:hover{border-color:var(--day);transform:translateY(-2px)}
+.qmode .qi{font-size:1.8rem}
+.qmode b{font-family:var(--display);font-weight:400;font-size:1.3rem}
+.qmode small{color:var(--muted);line-height:1.5}
+.qtop{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;color:var(--muted);font-weight:600}
+.qq{margin:16px 0 14px;font-size:1.3rem;line-height:1.7}
+.qopts{display:grid;gap:8px}
+@media(min-width:700px){.qopts{grid-template-columns:1fr 1fr}}
+.qopt{padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:var(--glass);text-align:right;font-weight:600;transition:.2s}
+.qopt:hover:not(:disabled){border-color:var(--day);transform:translateY(-2px)}
+.qopt:disabled{cursor:default}
+.qopt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 20%,transparent)}
+.qopt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 18%,transparent)}
+.qexp{margin:14px 0 10px;padding:12px 14px;border-radius:14px;background:var(--glass2);border:1px solid var(--stroke)}
+.qexp.ok{border-color:var(--ok)}
+.qexp.no{border-color:var(--bad)}
+.qexp p{margin:4px 0 0}
+.qres{text-align:center}
+.qstars{font-size:2.6rem;letter-spacing:.2em}
+.qstars .off{filter:grayscale(1);opacity:.25}
+.qscore{font-family:var(--display);font-size:clamp(2.2rem,8vw,3.4rem);line-height:1.3}
+.qrev{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px;text-align:right}
+.qrev li{padding:10px 14px;border-radius:14px;background:var(--glass);border:1px solid var(--stroke)}
+.qrev span{display:block;color:var(--ok);font-weight:700}
+.qrev small{color:var(--muted)}
+
+/* nav fit (۱۲ آیتم) */
+@media(min-width:1240px){.nav{gap:0}.nav a{padding:6px 7px;font-size:.92rem;white-space:nowrap}}
+/* school exam */
+.exm-note{margin:0 0 14px;color:var(--muted)}
+.exm-names{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:14px}
+.exm-names label{display:grid;gap:4px;font-size:.9rem;color:var(--muted)}
+.exm-rules{margin:0 0 14px;padding:0;padding-inline-start:22px}
+.exm-rules li{margin:4px 0}
+.exm-err{min-height:1.6em;margin:0 0 8px;color:var(--bad);font-weight:700}
+.exm-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px;color:var(--muted);font-weight:600}
+.exm-q{margin:16px 0 14px;font-size:1.3rem;line-height:1.7}
+.exm-opts{display:grid;gap:8px}
+@media(min-width:700px){.exm-opts{grid-template-columns:1fr 1fr}}
+.exm-opt{padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:var(--glass);text-align:right;font-weight:600;transition:border-color .2s,background .2s}
+.exm-opt:hover:not(:disabled){border-color:var(--day)}
+.exm-opt.sel{border-color:var(--day);background:color-mix(in srgb,var(--day) 22%,transparent)}
+.exm-opt:disabled{cursor:default}
+.exm-act{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:16px}
+.exm-act .btn:disabled{opacity:.5;cursor:not-allowed}
+.exm-act .btn:disabled:hover{transform:none;box-shadow:none}
+.exm-done{color:var(--ok);font-weight:700}
+.exm-warn{margin:12px 0 0;padding:10px 14px;border-radius:14px;border:1px solid var(--warn);background:color-mix(in srgb,var(--warn) 16%,transparent);font-weight:600}
+.exm-warn:empty{display:none}
+.exm-res{text-align:center}
+.exm-score{font-family:var(--display);font-size:clamp(2.4rem,9vw,3.8rem);line-height:1.3}
+.exm-stats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:10px 0}
+.exm-stats span{padding:6px 14px;border-radius:99px;border:1px solid var(--stroke);background:var(--glass);font-weight:700}
+.exm-stats .g{border-color:var(--ok);color:var(--ok)}
+.exm-stats .r{border-color:var(--bad);color:var(--bad)}
+.exm-meta{margin:4px 0;color:var(--muted);font-size:.92rem}
+.exm-flag{margin:12px auto 0;max-width:560px;padding:10px 14px;border-radius:14px;border:1px solid var(--warn);background:color-mix(in srgb,var(--warn) 14%,transparent);font-weight:600}
+.exm-rev{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px;text-align:right}
+.exm-rev li{padding:10px 14px;border-radius:14px;background:var(--glass);border:1px solid var(--stroke)}
+.exm-rev li.ok{border-color:var(--ok)}
+.exm-rev li.no{border-color:var(--bad)}
+.exm-rev small{display:block;color:var(--muted);line-height:1.7}
+
+/* notifications */
+.drawer{width:min(440px,94vw)}
+.drawer .body[hidden],.drawer .foot[hidden]{display:none}
+.dtools{display:flex;gap:6px}
+.dtabs{display:flex;gap:6px;padding:10px 16px 0}
+.dtabs button{flex:1;padding:7px 8px;border-radius:12px;border:1px solid var(--stroke);background:transparent;font-weight:700;white-space:nowrap;font-size:.92rem}
+.dtabs button[aria-selected=true]{background:var(--day);color:#080616;border-color:var(--day)}
+.ico.on{border-color:var(--warn);background:color-mix(in srgb,var(--warn) 22%,transparent)}
+.nfchips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px}
+.nfchips button{padding:3px 12px;border-radius:99px;border:1px solid var(--stroke);background:transparent;font-size:.85rem}
+.nfchips button[aria-pressed=true]{background:var(--day);color:#080616;border-color:var(--day);font-weight:700}
+#notifList,#remList{display:grid;gap:8px}
+.ngrp{margin:6px 0 0;color:var(--muted);font-size:.8rem;font-weight:700}
+.nempty{margin:6px 0;padding:18px;border:1px dashed var(--stroke);border-radius:14px;text-align:center;color:var(--muted)}
+.nt .nb,.nfp .nb,.rit .nb{flex:1;min-width:0}
+.nt b,.nfp b,.rit b{display:block;line-height:1.5;overflow-wrap:anywhere}
+.nt .nacts{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.rform{display:grid;gap:8px}
+.rrow{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.rit{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:14px;background:var(--glass);border:1px solid var(--stroke)}
+.rit.off{opacity:.55}
+.rit small,.nt small{color:var(--muted)}
+.nfset h4{margin:16px 0 4px;font-family:var(--display);font-weight:400;font-size:1.2rem}
+.nfset label{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--stroke)}
+.nfset input[type=checkbox]{width:22px;height:22px;accent-color:var(--day);flex:none}
+.nfset input[type=time],.nfset select{width:130px}
+.nfset p{margin:6px 0}
+.nfhelp{color:var(--muted);font-size:.85rem;line-height:1.7}
+.nfbtns{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+#nfPop{position:fixed;top:72px;left:50%;transform:translateX(-50%);z-index:101;display:grid;gap:8px;width:min(94vw,440px);pointer-events:none}
+.nfp{pointer-events:auto;display:flex;gap:10px;align-items:flex-start;padding:11px 14px;border-radius:16px;background:var(--bg2);border:1px solid var(--day);box-shadow:var(--shadow);animation:tin .35s both;cursor:pointer}
+.nfp.p1{border-color:var(--warn)}
+.nfp.p2{border-color:var(--bad)}
+.nfp.out{animation:tout .3s both}
+.nfp .ni{font-size:1.5rem}
+.nfp p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.5}
 
 /* fun */
 .fun{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
@@ -427,6 +531,16 @@ dialog h3{font-family:var(--display);font-weight:400;font-size:1.8rem;margin:0 0
   </div>
 </section>
 
+<section id="quiz" class="wrap sec">
+  <h2 class="h"><span class="tri"><i></i></span>کوییز درسی</h2>
+  <div class="glass panel" id="quizBox"></div>
+</section>
+
+<section id="exam" class="wrap sec">
+  <h2 class="h"><span class="tri"><i></i></span>آزمون مدرسه</h2>
+  <div class="glass panel" id="examBox"></div>
+</section>
+
 <section id="fun" class="wrap sec">
   <h2 class="h"><span class="tri"><i></i></span>حال و هوا</h2>
   <div class="fun">
@@ -479,11 +593,23 @@ dialog h3{font-family:var(--display);font-weight:400;font-size:1.8rem;margin:0 0
 
 <canvas id="fx" aria-hidden="true"></canvas>
 <div id="toasts" role="status" aria-live="polite"></div>
+<div id="nfPop" aria-live="polite"></div>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="مرکز اعلان‌ها" aria-hidden="true">
-  <header><h3>🔔 اعلان‌ها</h3><button class="ico" id="drawerClose" aria-label="بستن">✕</button></header>
-  <div class="body" id="notifList"></div>
-  <div class="foot"><button class="btn sm" id="readAll" type="button">همه خونده شد</button><button class="btn sm ghost" id="clearLog" type="button">پاک‌کردن رویدادها</button></div>
+  <header><h3>🔔 اعلان‌ها</h3><div class="dtools"><button class="ico" id="nfMute" type="button" title="بی‌صدا برای ۱ ساعت" aria-label="بی‌صدا برای یک ساعت" aria-pressed="false">🔕</button><button class="ico" id="drawerClose" aria-label="بستن">✕</button></div></header>
+  <div class="dtabs" id="nfTabs" role="tablist"><button type="button" role="tab" data-t="list" aria-selected="true">اعلان‌ها</button><button type="button" role="tab" data-t="rem" aria-selected="false">⏰ یادآورها</button><button type="button" role="tab" data-t="set" aria-selected="false">⚙️ تنظیمات</button></div>
+  <div class="body" id="nfPaneList"><div class="nfchips" id="nfChips"></div><div id="notifList"></div></div>
+  <div class="body" id="nfPaneRem" hidden>
+    <form class="rform" id="remForm">
+      <input type="text" id="remText" maxlength="80" placeholder="یادآوری چی؟ مثلاً مرور درس فارسی" required aria-label="متن یادآور">
+      <div class="rrow"><input type="date" id="remDate" required aria-label="تاریخ"><input type="time" id="remTime" required aria-label="ساعت"></div>
+      <select id="remRep" aria-label="تکرار"><option value="none">فقط یک‌بار</option><option value="daily">هر روز</option><option value="school">روزهای مدرسه (شنبه تا چهارشنبه)</option><option value="weekly">هر هفته</option></select>
+      <button class="btn main" type="submit">➕ افزودن یادآور</button>
+    </form>
+    <ul class="list" id="remList" data-empty="هنوز یادآوری نساخته‌ای."></ul>
+  </div>
+  <div class="body" id="nfPaneSet" hidden></div>
+  <div class="foot" id="nfFoot"><button class="btn sm" id="readAll" type="button">همه خونده شد</button><button class="btn sm" id="nfClearRead" type="button">پاک‌کردن خوانده‌ها</button><button class="btn sm ghost" id="clearLog" type="button">پاک‌کردن همه</button></div>
 </aside>
 <dialog id="keysDlg"><h3>⌨️ میانبرها</h3><div class="keys" id="keysList2"></div><p style="margin:16px 0 0"><button class="btn" data-close type="button">بستن</button></p></dialog>
 <dialog id="eggDlg"><h3>🕵️ سر گنگ کشف شد!</h3><p id="eggTxt"></p><p style="margin:16px 0 0"><button class="btn main" data-close type="button">عالیه 😎</button></p></dialog>
@@ -539,10 +665,10 @@ const todayIdx=()=>dayIdx(new Date());
 
 /* ---------- toast / log ---------- */
 function toast(msg){const t=document.createElement('div');t.className='toast';t.textContent=msg;$('#toasts').appendChild(t);setTimeout(()=>{t.classList.add('out');setTimeout(()=>t.remove(),320)},3000);}
-function addLog(icon,text){S.log.unshift({id:'e'+Date.now()+Math.random().toString(36).slice(2,5),icon,text,t:Date.now()});S.log=S.log.slice(0,30);store.set('log',S.log);renderNotifs();}
+function addLog(icon,text){nfNotify({k:'event',i:icon,ti:text,tx:'',pr:0,silent:true});}
 
 /* ---------- nav ---------- */
-const NAV=[['home','خانه'],['today','امروز'],['countdown','شمارش معکوس'],['schedule','برنامه'],['gang','سه گنگ'],['school','مدرسه'],['tasks','کارها'],['fun','حال و هوا'],['stats','آمار'],['secret','مخفی‌ها']];
+const NAV=[['home','خانه'],['today','امروز'],['countdown','شمارش معکوس'],['schedule','برنامه'],['gang','سه گنگ'],['school','مدرسه'],['tasks','کارها'],['quiz','کوییز'],['exam','آزمون'],['fun','حال و هوا'],['stats','آمار'],['secret','مخفی‌ها']];
 function buildNav(){
   const h=NAV.map(([id,t])=>`<a href="#${id}" data-s="${id}">${t}</a>`).join('');
   $('#nav').innerHTML=h;$('#mnav').innerHTML=h;
@@ -682,7 +808,7 @@ function initTodos(){
   $('#todoList').addEventListener('click',e=>{
     const b=e.target.closest('button'),li=e.target.closest('li');if(!b||!li)return;const t=S.todos.find(x=>x.id==li.dataset.id);if(!t)return;
     if(b.dataset.a==='del'){S.todos=S.todos.filter(x=>x!==t);}
-    else{t.done=!t.done;}
+    else{t.done=!t.done;if(t.done)setTimeout(nfTodoCheck,0);}
     store.set('todos',S.todos);renderTodos();
   });
   $('#todoFilters').addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(b){S.tf=b.dataset.f;renderTodos();}});
@@ -701,7 +827,7 @@ function renderHW(){
 function initHW(){
   $('#hwSub').innerHTML=subjects.map(s=>`<option>${s}</option>`).join('')+'<option>سایر</option>';
   const t=new Date();t.setDate(t.getDate()+1);$('#hwDue').value=iso(t);
-  $('#hwForm').addEventListener('submit',e=>{e.preventDefault();const d=$('#hwDesc').value.trim();if(!d||!$('#hwDue').value)return;S.hw.push({id:Date.now(),sub:$('#hwSub').value,desc:d,due:$('#hwDue').value,done:false});store.set('hw',S.hw);$('#hwDesc').value='';renderHW();renderNotifs();});
+  $('#hwForm').addEventListener('submit',e=>{e.preventDefault();const d=$('#hwDesc').value.trim();if(!d||!$('#hwDue').value)return;{const nh={id:Date.now(),sub:$('#hwSub').value,desc:d,due:$('#hwDue').value,done:false};S.hw.push(nh);nfHwAdded(nh);}store.set('hw',S.hw);$('#hwDesc').value='';renderHW();renderNotifs();});
   $('#hwList').addEventListener('click',e=>{
     const b=e.target.closest('button'),li=e.target.closest('li');if(!b||!li)return;const h=S.hw.find(x=>x.id==li.dataset.id);if(!h)return;
     if(b.dataset.a==='del')S.hw=S.hw.filter(x=>x!==h);else{h.done=!h.done;if(h.done){toast('📚 آفرین! تکلیف انجام شد');}}
@@ -710,31 +836,317 @@ function initHW(){
 }
 
 /* ---------- notifications ---------- */
-function buildNotifs(){
-  const now=new Date(),i=dayIdx(now),k=iso(now),n=[],nx=(i+1)%7;
-  const add=(key,icon,text)=>n.push({id:k+key,icon,text,auto:true});
-  if(i===0)add('a','📝','امروز آزمون جامع داریم! آماده‌ای؟');
-  if(i>=1&&i<=3)add('a','📚','امروز مدرسه داریم؛ کیفت رو آماده کن.');
-  if(i===4)add('a','😎','امروز چهارشنبه‌ست؛ بعد مدرسه عشق و حال!');
-  if(i===5)add('a','🎉','پنجشنبه است؛ تعطیله!');
-  if(i===6)add('a','🔥','جمعه‌ست؛ استراحت کامل و عشق و حال!');
-  if(nx===0)add('b','🔔','فردا آزمون جامع دارید!');
-  else if(DAYS[nx].school)add('b','🔔','فردا مدرسه دارید.');
-  else add('b','🎊','فردا تعطیله!');
-  S.hw.filter(h=>!h.done).forEach(h=>{const d=dayDiff(h.due);if(d<0)add('h'+h.id,'⚠️',`تکلیف ${h.sub} دیر شده: ${h.desc}`);else if(d<=1)add('h'+h.id,'📚',`تکلیف ${h.sub} ${d===0?'امروز':'فردا'} تحویل داده می‌شه: ${h.desc}`);});
-  const open=S.todos.filter(t=>!t.done).length;if(open)add('t','✅',`${fa(open)} کار باقی‌مانده تو لیست امروز داری.`);
+const NF_TITLE=document.title,NF_LATE=15*60000;
+const NF_CATS={school:{l:'مدرسه'},hw:{l:'تکالیف و کارها'},rem:{l:'یادآورها'},event:{l:'رویدادها'}};
+const NF_DEF={on:true,banner:true,sound:true,vib:true,sys:false,quiet:true,qFrom:'22:00',qTo:'06:30',wake:'06:30',pre:30,digest:'17:00',evening:'20:00',lessons:false,muteUntil:0};
+S.nf=store.get('nf',[]);S.rem=store.get('rem',[]);S.fired=store.get('nffired',{});
+S.nfset=Object.assign({},NF_DEF,store.get('nfset',{}));
+S.nfset.cats=Object.assign({school:true,hw:true,rem:true,event:true},S.nfset.cats||{});
+let nfFilter='all',nfCtx=null,nfSwState='idle',nfFDirty=false;
+const nfSave=()=>store.set('nf',S.nf);
+const nfSetSave=()=>store.set('nfset',S.nfset);
+const remSave=()=>store.set('rem',S.rem);
+const toMin=t=>{const p=String(t).split(':').map(Number);return (p[0]||0)*60+(p[1]||0);};
+const hhmm=d=>`${pad(d.getHours())}:${pad(d.getMinutes())}`;
+const nfInExam=()=>{try{return !!(exS&&exS.phase==='run');}catch(e){return false;}};
+function nfQuiet(){
+  const s=S.nfset,now=Date.now();
+  if(s.muteUntil&&now<s.muteUntil)return true;
+  if(!s.quiet)return false;
+  const d=new Date(now),m=d.getHours()*60+d.getMinutes(),f=toMin(s.qFrom),t=toMin(s.qTo);
+  return f<=t?(m>=f&&m<t):(m>=f||m<t);
+}
+function nfAdd(o){
+  const st=S.nfset;
+  if(!st.on||(NF_CATS[o.k]&&!st.cats[o.k]))return null;
+  if(o.key){if(S.fired['k:'+o.key])return null;S.fired['k:'+o.key]=Date.now();nfFDirty=true;}
+  const n={id:'n'+Date.now()+Math.random().toString(36).slice(2,6),k:o.k||'event',i:o.i||'🔔',ti:o.ti||'',tx:o.tx||'',t:Date.now(),r:0,go:o.go||'',pr:o.pr||0,sn:o.sn?1:0};
+  S.nf.unshift(n);S.nf=S.nf.slice(0,100);nfSave();renderNotifs();
   return n;
 }
+function nfPop(n){
+  if(!S.nfset.banner||document.hidden)return;
+  const box=$('#nfPop');if(!box)return;
+  const el=document.createElement('div');el.className='nfp p'+n.pr;
+  el.innerHTML=`<span class="ni">${esc(n.i)}</span><div class="nb"><b>${esc(n.ti)}</b>${n.tx?`<p>${esc(n.tx)}</p>`:''}</div><button class="x" type="button" data-a="x" aria-label="بستن">✕</button>`;
+  const kill=()=>{el.classList.add('out');setTimeout(()=>el.remove(),300);};
+  el.addEventListener('click',e=>{const x=e.target.closest('[data-a=x]');kill();if(!x)nfOpen(n.id);});
+  box.appendChild(el);
+  while(box.children.length>3)box.firstChild.remove();
+  setTimeout(kill,n.pr===2?14000:7000);
+}
+function nfChime(pr){
+  if(!S.nfset.sound)return;
+  try{
+    nfCtx=nfCtx||new (window.AudioContext||window.webkitAudioContext)();
+    if(nfCtx.state==='suspended'&&nfCtx.resume)nfCtx.resume();
+    const t0=nfCtx.currentTime,seq=pr===2?[[784,0],[988,.14],[1319,.28]]:pr===1?[[784,0],[1047,.14]]:[[880,0]];
+    seq.forEach(([f,d])=>{const o=nfCtx.createOscillator(),g=nfCtx.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(.0001,t0+d);g.gain.exponentialRampToValueAtTime(.05,t0+d+.02);g.gain.exponentialRampToValueAtTime(.0001,t0+d+.35);o.connect(g);g.connect(nfCtx.destination);o.start(t0+d);o.stop(t0+d+.4);});
+  }catch(e){}
+}
+function nfVibe(pr){if(!S.nfset.vib)return;try{if(navigator.vibrate)navigator.vibrate(pr===2?[200,80,200,80,200]:[120,60,120]);}catch(e){}}
+async function nfSys(n,force){
+  try{
+    if(!S.nfset.sys||!('Notification' in window)||Notification.permission!=='granted')return;
+    if(!force&&!document.hidden)return;
+    const opts={body:n.tx||'',tag:n.id,lang:'fa',dir:'rtl',vibrate:[150,60,150],data:{go:n.go||'',id:n.id}},title=`${n.i} ${n.ti}`;
+    let reg=null;
+    try{reg='serviceWorker' in navigator?await navigator.serviceWorker.getRegistration():null;}catch(e){}
+    if(reg&&reg.showNotification){await reg.showNotification(title,opts);return;}
+    const x=new Notification(title,opts);
+    x.onclick=()=>{try{window.focus();}catch(e){}nfOpen(n.id);x.close();};
+  }catch(e){}
+}
+function nfNotify(o,opt){
+  opt=opt||{};
+  const n=nfAdd(o);if(!n)return null;
+  if(o.silent||nfInExam()||(!opt.force&&nfQuiet()))return n;
+  nfPop(n);nfChime(n.pr);nfVibe(n.pr);nfSys(n,opt.force);
+  return n;
+}
+function nfGo(go){
+  setDrawer(false);
+  const el=go&&document.getElementById(go);
+  if(el)el.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+}
+function nfOpen(id){
+  const n=S.nf.find(x=>x.id===id);
+  if(n){n.r=1;nfSave();renderNotifs();}
+  if(n&&n.go)nfGo(n.go);else setDrawer(true);
+}
+
+/* --- زمان‌بندی خودکار --- */
+function nfPlan(nowD){
+  const di=dayIdx(nowD),D=DAYS[di],k=iso(nowD),st=S.nfset,ev=[];
+  const T=t=>atTime(nowD,t).getTime();
+  ev.push({key:k+':morning',t:T(st.wake),k:'school',miss:true,pr:di===0?1:0,go:'today',f:()=>{
+    const h=S.hw.filter(x=>!x.done&&dayDiff(x.due)===0).length;
+    return{i:D.e,ti:`صبح بخیر ☀️ امروز ${D.n} است`,tx:(D.school?`${D.tag}؛ ${fa(D.L.length)} زنگ داریم و مدرسه ساعت ${fa(S.set.start)} شروع می‌شه.`:'امروز تعطیله؛ استراحت و عشق و حال! 🎉')+(h?` ${fa(h)} تکلیف هم امروز تحویل داده می‌شه.`:'')};
+  }});
+  if(D.school&&st.pre>0)ev.push({key:k+':pre',t:T(S.set.start)-st.pre*60000,k:'school',miss:false,pr:1,go:'countdown',f:()=>({i:'⏰',ti:`${fa(st.pre)} دقیقه تا شروع مدرسه`,tx:`ساعت ${fa(S.set.start)} — درس اول: ${D.L[0]}. کیفت رو چک کن 🎒`})});
+  if(D.school)ev.push({key:k+':end',t:T(S.set.end),k:'school',miss:false,pr:0,go:'today',f:()=>({i:'🔔',ti:'مدرسه تموم شد!',tx:D.fun?'وقت عشق و حال! 😎':'استراحت کن و تکالیفت رو فراموش نکن 📚'})});
+  ev.push({key:k+':digest',t:T(st.digest),k:'hw',miss:true,pr:0,go:'tasks',f:()=>{
+    const open=S.hw.filter(h=>!h.done),late=open.filter(h=>dayDiff(h.due)<0),soon=open.filter(h=>{const d=dayDiff(h.due);return d>=0&&d<=1;}),td=S.todos.filter(t=>!t.done).length;
+    if(!late.length&&!soon.length&&!td)return null;
+    const p=[];
+    if(late.length)p.push(`⚠️ ${fa(late.length)} تکلیف دیر شده`);
+    if(soon.length)p.push(`📚 ${fa(soon.length)} تکلیف تا فردا`);
+    if(td)p.push(`✅ ${fa(td)} کار باقی‌مانده`);
+    return{i:late.length?'⚠️':'📚',ti:'خلاصه‌ی تکالیف و کارها',tx:p.join(' · '),pr:late.length?2:0};
+  }});
+  ev.push({key:k+':eve',t:T(st.evening),k:'school',miss:true,pr:0,go:'schedule',f:()=>{
+    const nx=(di+1)%7,N=DAYS[nx];
+    if(!N.school)return{i:'🎊',ti:'فردا تعطیله!',tx:'استراحت کن و حسابی عشق و حال کن 😎'};
+    return{i:N.e,ti:`فردا ${N.n}`,tx:`${nx===0?'آزمون جامع داریم! 📝 ':''}زنگ‌ها: ${N.L.join('، ')}. کیف رو آماده کن 🎒`,pr:nx===0?1:0};
+  }});
+  if(st.lessons&&D.school){
+    const a=T(S.set.start),b=T(S.set.end);
+    D.L.forEach((l,n)=>{if(n===0)return;ev.push({key:`${k}:l${n}`,t:a+(b-a)*n/D.L.length,k:'school',miss:false,pr:0,go:'today',f:()=>({i:ICON[l]||'📘',ti:`زنگ ${fa(n+1)}: ${l}`,tx:'شروع زنگ جدید (زمان تقریبی)'})});});
+  }
+  return ev;
+}
+function remDue(r,nowD){
+  let t=null;
+  if(r.rep==='none')t=new Date(r.date+'T'+r.time+':00').getTime();
+  else{
+    const di=dayIdx(nowD);
+    if(r.rep==='school'&&di>4)return null;
+    if(r.rep==='weekly'&&dayIdx(new Date(r.date+'T00:00:00'))!==di)return null;
+    if(iso(nowD)<r.date)return null;
+    t=atTime(nowD,r.time).getTime();
+  }
+  return isNaN(t)?null:t;
+}
+function nfMuteUI(){
+  const b=$('#nfMute');if(!b)return;
+  const on=!!(S.nfset.muteUntil&&Date.now()<S.nfset.muteUntil);
+  b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);
+  b.title=on?`بی‌صدا تا ${fa(hhmm(new Date(S.nfset.muteUntil)))} (برای لغو بزن)`:'بی‌صدا برای ۱ ساعت';
+}
+function nfRun(){
+  try{
+    const now=Date.now(),nowD=new Date(now),k=iso(nowD);
+    nfPlan(nowD).forEach(e=>{
+      if(S.fired[e.key]||now<e.t)return;
+      S.fired[e.key]=now;nfFDirty=true;
+      const late=now-e.t>NF_LATE;
+      if(late&&!e.miss)return;
+      const p=e.f();if(!p)return;
+      nfNotify({k:e.k,i:p.i,ti:p.ti,tx:p.tx,go:e.go,pr:p.pr!=null?p.pr:e.pr,silent:late});
+    });
+    S.rem.forEach(r=>{
+      if(!r.on)return;
+      const due=remDue(r,nowD);if(due==null||now<due)return;
+      const key=r.rep==='none'?'r'+r.id:'r'+r.id+':'+k;
+      if(S.fired[key])return;
+      S.fired[key]=now;nfFDirty=true;
+      if(r.rep==='none'){r.on=false;r.done=true;remSave();}
+      const late=now-due>NF_LATE;
+      nfNotify({k:'rem',i:'⏰',ti:r.text,tx:late?'یادآوری‌ای که زمانش گذشته بود':`یادآور ساعت ${fa(r.time)}`,pr:1,sn:1,silent:late});
+    });
+    if(nfFDirty){store.set('nffired',S.fired);nfFDirty=false;}
+    nfMuteUI();
+  }catch(err){}
+}
+function nfSnooze(id){
+  const n=S.nf.find(x=>x.id===id);if(!n)return;
+  const d=new Date(Date.now()+600000);
+  S.rem.unshift({id:Date.now(),text:n.ti,date:iso(d),time:hhmm(d),rep:'none',on:true,done:false});remSave();
+  n.r=1;nfSave();renderNotifs();toast('⏰ ۱۰ دقیقه‌ی دیگه دوباره یادآوری می‌کنم');
+}
+
+/* --- نمایش لیست --- */
 function renderNotifs(){
-  const all=[...buildNotifs(),...S.log.map(l=>({id:l.id,icon:l.icon,text:l.text,t:l.t}))];
-  const unread=all.filter(x=>!S.read[x.id]).length;
-  const b=$('#notifBadge');b.dataset.n=unread;b.textContent=unread?fa(unread):'';
-  $('#notifList').innerHTML=all.map(x=>`<div class="nt ${S.read[x.id]?'':'unread'}" data-id="${x.id}"><span class="ni">${x.icon}</span><div><p>${esc(x.text)}</p>${x.t?`<small>${fa(new Date(x.t).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}))}</small>`:'<small>خودکار بر اساس امروز</small>'}</div></div>`).join('')||'<p style="color:var(--muted)">اعلانی نیست.</p>';
-  window.__all=all;
+  const unread=S.nf.filter(n=>!n.r).length,b=$('#notifBadge');
+  b.dataset.n=unread;b.textContent=unread?fa(unread>99?'99+':unread):'';
+  document.title=(unread?`(${fa(unread)}) `:'')+NF_TITLE;
+  try{if(navigator.setAppBadge){const p=unread?navigator.setAppBadge(unread):navigator.clearAppBadge();if(p&&p.catch)p.catch(()=>{});}}catch(e){}
+  const cnt=f=>f==='all'?S.nf.length:f==='unread'?unread:S.nf.filter(n=>n.k===f).length;
+  $('#nfChips').innerHTML=[['all','همه'],['unread','خوانده‌نشده'],['school','مدرسه'],['hw','تکالیف و کارها'],['rem','یادآورها'],['event','رویدادها']].map(([f,l])=>`<button type="button" data-f="${f}" aria-pressed="${nfFilter===f}">${l} ${fa(cnt(f))}</button>`).join('');
+  const list=S.nf.filter(n=>nfFilter==='all'||(nfFilter==='unread'?!n.r:n.k===nfFilter));
+  const today=iso(new Date()),y=new Date();y.setDate(y.getDate()-1);const yk=iso(y);
+  let last='',h='';
+  list.forEach(n=>{
+    const d=new Date(n.t),dk=iso(d),g=dk===today?'امروز':dk===yk?'دیروز':'قبل‌تر';
+    if(g!==last){h+=`<div class="ngrp">${g}</div>`;last=g;}
+    h+=`<div class="nt ${n.r?'':'unread'}" data-id="${n.id}"><span class="ni">${esc(n.i)}</span><div class="nb"><b>${esc(n.ti)}</b>${n.tx?`<p>${esc(n.tx)}</p>`:''}<small>${fa(pad(d.getHours()))}:${fa(pad(d.getMinutes()))} · ${NF_CATS[n.k]?NF_CATS[n.k].l:'سیستم'}${n.pr===2?' · ⚠️ مهم':''}</small>${n.sn?'<div class="nacts"><button class="btn sm" type="button" data-a="snooze">⏰ ۱۰ دقیقه بعد</button></div>':''}</div><button class="x" type="button" data-a="del" aria-label="حذف">✕</button></div>`;
+  });
+  $('#notifList').innerHTML=h||'<p class="nempty">اعلانی نیست.</p>';
 }
 function setDrawer(o){$('#drawer').classList.toggle('open',o);$('#scrim').classList.toggle('open',o);$('#drawer').setAttribute('aria-hidden',!o);}
 const drawerOpen=()=>$('#drawer').classList.contains('open');
-function markRead(ids){ids.forEach(id=>S.read[id]=true);const keys=Object.keys(S.read);if(keys.length>200)keys.slice(0,100).forEach(k=>delete S.read[k]);store.set('read',S.read);renderNotifs();}
+function nfTab(t){
+  $$('#nfTabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t));
+  $('#nfPaneList').hidden=t!=='list';$('#nfPaneRem').hidden=t!=='rem';$('#nfPaneSet').hidden=t!=='set';$('#nfFoot').hidden=t!=='list';
+  if(t==='rem'){const d=new Date(Date.now()+600000);$('#remDate').value=iso(d);$('#remTime').value=hhmm(d);renderRem();}
+  if(t==='set')nfRenderSet();
+}
+
+/* --- یادآورها --- */
+function remWhen(r){
+  const d=new Date(r.date+'T00:00:00');
+  if(r.rep==='none')return `${fJal.format(d)} · ساعت ${fa(r.time)}`;
+  if(r.rep==='daily')return `هر روز · ساعت ${fa(r.time)}`;
+  if(r.rep==='school')return `روزهای مدرسه (شنبه تا چهارشنبه) · ساعت ${fa(r.time)}`;
+  return `هر ${DAYS[dayIdx(d)].n} · ساعت ${fa(r.time)}`;
+}
+function renderRem(){
+  $('#remList').innerHTML=S.rem.map(r=>`<li class="rit ${r.on?'':'off'}" data-id="${r.id}"><div class="nb"><b>${esc(r.text)}</b><small>${remWhen(r)}${r.rep==='none'&&r.done?' · ✔️ اعلان شد':(r.on?'':' · خاموش')}</small></div><button class="btn sm" type="button" data-a="tog">${r.on?'خاموش':'روشن'}</button><button class="x" type="button" data-a="del" aria-label="حذف">🗑️</button></li>`).join('');
+}
+
+/* --- تنظیمات --- */
+function nfStatHTML(){
+  let a;
+  if(!('Notification' in window))a='🚫 مرورگرت اعلان سیستم رو پشتیبانی نمی‌کنه.';
+  else{const p=Notification.permission;a=p==='granted'?'✅ اجازه‌ی اعلان سیستم داده شده.':p==='denied'?'🚫 اعلان سیستم مسدود شده؛ از تنظیمات مرورگر (قفل کنار آدرس) بازش کن.':'ℹ️ هنوز اجازه‌ی اعلان سیستم نداده‌ای.';}
+  const b=nfSwState==='ok'?'📲 اعلان بیرون از صفحه (اندروید) آماده‌ست.':nfSwState==='fail'?'⚠️ فایل sw.js پیدا نشد یا سایت روی https نیست؛ اعلان سیستم فقط روی کامپیوتر کار می‌کنه.':'';
+  return `<p>${a}</p>${b?`<p>${b}</p>`:''}<p class="nfhelp">اعلان‌ها وقتی می‌رسن که سایت باز باشه (حتی توی پس‌زمینه). بدون سرور، وقتی سایت کاملاً بسته‌ست نمی‌شه اعلان فرستاد.</p>`;
+}
+function nfRenderSet(){
+  const st=S.nfset,chk=(k,l)=>`<label>${l}<input type="checkbox" data-k="${k}" ${st[k]?'checked':''}></label>`,tm=(k,l)=>`<label>${l}<input type="time" data-k="${k}" value="${st[k]}"></label>`;
+  const cat=(k,l)=>`<label>${l}<input type="checkbox" data-c="${k}" ${st.cats[k]?'checked':''}></label>`;
+  $('#nfPaneSet').innerHTML=`<div class="nfset"><div id="nfStat">${nfStatHTML()}</div><div class="nfbtns"><button class="btn main" type="button" data-a="perm">🔔 فعال‌سازی اعلان سیستم</button><button class="btn" type="button" data-a="test">🧪 اعلان آزمایشی</button></div>
+<h4>کلی</h4>${chk('on','دریافت اعلان‌ها (کلید اصلی)')}${chk('banner','نمایش اعلان روی صفحه')}${chk('sound','صدای اعلان')}${chk('vib','لرزش')}${chk('sys','اعلان سیستم (وقتی سایت توی پس‌زمینه‌ست)')}
+<h4>ساعت سکوت</h4>${chk('quiet','فعال‌سازی ساعت سکوت')}${tm('qFrom','از ساعت')}${tm('qTo','تا ساعت')}<p class="nfhelp">توی ساعت سکوت (و وقتی «بی‌صدا» روشنه) و همین‌طور وسط آزمون، اعلان‌ها فقط توی لیست ذخیره می‌شن؛ بدون صدا، لرزش و پنجره.</p>
+<h4>اعلان‌های خودکار</h4>${tm('wake','صبح‌بخیر و برنامه‌ی امروز')}<label>هشدار قبل از شروع مدرسه<select data-k="pre">${[0,10,15,30,45,60].map(n=>`<option value="${n}" ${+st.pre===n?'selected':''}>${n?fa(n)+' دقیقه':'خاموش'}</option>`).join('')}</select></label>${tm('digest','خلاصه‌ی تکالیف و کارها')}${tm('evening','برنامه‌ی فردا')}${chk('lessons','هشدار شروع هر زنگ (تقریبی)')}
+<h4>دسته‌بندی‌ها</h4>${cat('school','🏫 مدرسه و برنامه')}${cat('hw','📚 تکالیف و کارها')}${cat('rem','⏰ یادآورها')}${cat('event','🎉 رویدادها (آزمون، کوییز، ...)')}
+<div class="nfbtns"><button class="btn ghost sm" type="button" data-a="reset">برگردوندن تنظیمات اعلان به پیش‌فرض</button></div></div>`;
+}
+function nfRegSW(){
+  if(!('serviceWorker' in navigator)){nfSwState='fail';return Promise.resolve();}
+  return navigator.serviceWorker.register('sw.js').then(()=>{nfSwState='ok';}).catch(()=>{nfSwState='fail';});
+}
+async function nfAskPerm(){
+  if(!('Notification' in window)){toast('مرورگرت اعلان سیستم رو پشتیبانی نمی‌کنه');return;}
+  let r=Notification.permission;
+  if(r==='default'){try{r=await new Promise(res=>{const p=Notification.requestPermission(res);if(p&&p.then)p.then(res);});}catch(e){}}
+  S.nfset.sys=r==='granted';nfSetSave();
+  if(S.nfset.sys){await nfRegSW();nfTest();}else toast('اجازه‌ی اعلان داده نشد');
+  nfRenderSet();
+}
+function nfTest(){
+  if(!S.nfset.on){toast('کلید اصلی اعلان‌ها خاموشه');return;}
+  nfNotify({k:'system',i:'🧪',ti:'اعلان آزمایشی',tx:'اگه این رو می‌بینی، اعلان‌ها درست کار می‌کنن 😎',pr:1},{force:true});
+}
+function nfMuteToggle(){
+  const st=S.nfset,now=Date.now();
+  if(st.muteUntil&&now<st.muteUntil){st.muteUntil=0;toast('🔔 اعلان‌ها دوباره فعال شد');}
+  else{st.muteUntil=now+3600000;toast(`🔕 اعلان‌ها تا ساعت ${fa(hhmm(new Date(st.muteUntil)))} بی‌صدا شد`);}
+  nfSetSave();nfMuteUI();
+}
+
+/* --- اعلان‌های رویدادهای سایت --- */
+function nfHwAdded(h){const d=dayDiff(h.due);nfNotify({k:'hw',i:ICON[h.sub]||'📚',ti:`تکلیف ${h.sub} ثبت شد`,tx:`${h.desc} — تحویل: ${relTxt(d)}`,go:'tasks',pr:d<=1?1:0,silent:true});}
+function nfTodoCheck(){if(S.todos.length&&S.todos.every(t=>t.done))nfNotify({k:'hw',i:'🎉',ti:'همه‌ی کارهای امروز انجام شد!',tx:'آفرین؛ عالی بودی 😎',go:'tasks',pr:1,key:'alldone:'+iso(new Date())});}
+function nfExamDone(){const f=EX_CHEAT&&exS.leaves>=EX_FLAG_AT;nfNotify({k:'event',i:'📋',ti:`آزمون تموم شد: ${fa(exS.correct)} از ${fa(EX_COUNT)}`,tx:`${exName.f} ${exName.l}${f?' · 🚩 برای بررسی علامت‌گذاری شد':''}`,go:'exam',pr:f?2:1,silent:true});}
+function nfQuizRecord(mode,sc,n,had){const m=QMODES.find(x=>x.id===mode);nfNotify({k:'event',i:'🏆',ti:had?'رکورد جدید کوییز!':'اولین رکورد کوییز ثبت شد',tx:`${m?m.t:''}: ${fa(sc)} از ${fa(n)}`,go:'quiz',pr:0,silent:true});}
+
+function initNotifs(){
+  // انتقال اعلان‌های قدیمی (یک‌بار)
+  if(!store.get('nfmig',false)){
+    (S.log||[]).forEach(l=>S.nf.push({id:l.id||('m'+l.t),k:'event',i:l.icon||'🔔',ti:l.text||'',tx:'',t:l.t||Date.now(),r:(S.read&&S.read[l.id])?1:0,go:'',pr:0,sn:0}));
+    S.nf.sort((a,b)=>b.t-a.t);S.nf=S.nf.slice(0,100);nfSave();store.set('nfmig',true);
+  }
+  const cut=Date.now()-4*864e5;Object.keys(S.fired).forEach(k=>{if(S.fired[k]<cut)delete S.fired[k];});
+  // باز کردن قفل صدا با اولین لمس
+  const unlock=()=>{try{nfCtx=nfCtx||new (window.AudioContext||window.webkitAudioContext)();if(nfCtx.resume)nfCtx.resume();}catch(e){}};
+  ['pointerdown','keydown'].forEach(ev=>addEventListener(ev,unlock,{once:true,passive:true}));
+  // تب‌ها
+  $('#nfTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)nfTab(b.dataset.t);});
+  // فیلتر و لیست
+  $('#nfChips').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;nfFilter=b.dataset.f;renderNotifs();});
+  $('#notifList').addEventListener('click',e=>{
+    const li=e.target.closest('.nt');if(!li)return;
+    const b=e.target.closest('button'),id=li.dataset.id;
+    if(b&&b.dataset.a==='del'){S.nf=S.nf.filter(x=>x.id!==id);nfSave();renderNotifs();return;}
+    if(b&&b.dataset.a==='snooze'){nfSnooze(id);return;}
+    nfOpen(id);
+  });
+  $('#readAll').onclick=()=>{S.nf.forEach(n=>n.r=1);nfSave();renderNotifs();};
+  $('#nfClearRead').onclick=()=>{S.nf=S.nf.filter(n=>!n.r);nfSave();renderNotifs();};
+  $('#clearLog').onclick=()=>{if(confirm('همه‌ی اعلان‌ها پاک بشن؟')){S.nf=[];nfSave();renderNotifs();}};
+  $('#nfMute').onclick=nfMuteToggle;
+  // یادآورها
+  $('#remForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const text=$('#remText').value.trim(),date=$('#remDate').value,time=$('#remTime').value,rep=$('#remRep').value;
+    if(!text||!date||!time)return;
+    if(rep==='none'&&new Date(date+'T'+time+':00').getTime()<Date.now()-60000){toast('⚠️ این زمان گذشته؛ یه زمان بعدی انتخاب کن');return;}
+    S.rem.unshift({id:Date.now(),text,date,time,rep,on:true,done:false});remSave();$('#remText').value='';renderRem();toast('⏰ یادآور ذخیره شد');nfRun();
+  });
+  $('#remList').addEventListener('click',e=>{
+    const b=e.target.closest('button'),li=e.target.closest('li');if(!b||!li)return;
+    const r=S.rem.find(x=>x.id==li.dataset.id);if(!r)return;
+    if(b.dataset.a==='del')S.rem=S.rem.filter(x=>x!==r);
+    else{if(r.rep==='none'&&r.done){toast('این یادآور تموم شده؛ یه یادآور جدید بساز');return;}r.on=!r.on;}
+    remSave();renderRem();
+  });
+  // تنظیمات
+  const pane=$('#nfPaneSet');
+  pane.addEventListener('change',e=>{
+    const t=e.target,k=t.dataset.k,c=t.dataset.c;
+    if(c)S.nfset.cats[c]=t.checked;
+    else if(k){
+      S.nfset[k]=t.type==='checkbox'?t.checked:(k==='pre'?+t.value:t.value);
+      if(t.type==='time'&&!t.value){t.value=NF_DEF[k];S.nfset[k]=NF_DEF[k];}
+      if(k==='sys'&&t.checked&&(!('Notification' in window)||Notification.permission!=='granted')){S.nfset.sys=false;t.checked=false;nfSetSave();nfAskPerm();return;}
+    }else return;
+    nfSetSave();nfRun();
+  });
+  pane.addEventListener('click',e=>{
+    const b=e.target.closest('button');if(!b)return;
+    if(b.dataset.a==='perm')nfAskPerm();
+    else if(b.dataset.a==='test')nfTest();
+    else if(b.dataset.a==='reset'){S.nfset=Object.assign({},NF_DEF,{cats:{school:true,hw:true,rem:true,event:true}});nfSetSave();nfRenderSet();toast('تنظیمات اعلان به پیش‌فرض برگشت');}
+  });
+  // کلیک روی اعلان سیستم (Service Worker)
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.addEventListener('message',e=>{const d=e.data||{};if(d.type==='nf-click'){if(d.id)nfOpen(d.id);else nfGo(d.go);}});
+    if(S.nfset.sys)nfRegSW();
+  }
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)nfRun();});
+  renderNotifs();nfMuteUI();nfRun();setInterval(nfRun,15000);
+}
 
 /* ---------- fun ---------- */
 let luckBusy=false;
@@ -746,118 +1158,206 @@ function rollLuck(){
 let lastQ=-1;
 function newQuote(){let k;do{k=Math.floor(Math.random()*QUOTES.length)}while(k===lastQ&&QUOTES.length>1);lastQ=k;$('#quoteT').textContent=QUOTES[k];}
 
-/* ---------- stats ---------- */
-const barRow=(l,v,max,col)=>`<div class="br"><span>${l}</span><div class="bar" style="--c:${col}"><i style="width:${max?v/max*100:0}%"></i></div><b>${fa(v)}</b></div>`;
-function renderStats(){
-  if(!$('#statCards'))return;
-  const lessons=DAYS.reduce((a,d)=>a+d.L.length,0),sd=DAYS.filter(d=>d.school).length,hwLeft=S.hw.filter(h=>!h.done).length,tOpen=S.todos.filter(t=>!t.done).length;
-  const cards=[['🏫',sd,'روز مدرسه در هفته'],['🎉',7-sd,'روز تعطیل'],['📖',lessons,'درس در هفته'],['📚',hwLeft,'تکلیف باقی‌مانده'],['✅',tOpen,'کار باز امروز'],['📆',daysToHoliday(new Date()),'روز تا تعطیلی'],['📅',DAYS[todayIdx()].n,'روز فعلی']];
-  $('#statCards').innerHTML=cards.map(([e,v,l])=>`<div class="glass st"><b>${e} ${fa(v)}</b><span>${l}</span></div>`).join('');
-  const cnt={};DAYS.forEach(d=>d.L.forEach(l=>cnt[l]=(cnt[l]||0)+1));
-  const top=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).slice(0,6);
-  $('#charts').innerHTML=`<div class="glass chart"><h4>تعداد زنگ‌ها در هر روز</h4>${DAYS.map(d=>barRow(d.n,d.L.length,6,d.color)).join('')}</div><div class="glass chart"><h4>پرتکرارترین درس‌ها</h4>${top.map(([l,v])=>barRow(l,v,top[0][1],'var(--day)')).join('')}</div>`;
+/* ---------- quiz ---------- */
+const Q=(s,q,o,e)=>({s,q,o,e}); // o[0] = جواب درست (موقع نمایش قاطی می‌شه)
+const QZ=[
+ Q('math','ماشینی هر عدد رو ۳ برابر می‌کنه. ورودی ۷ بشه خروجی چند؟',['۲۱','۱۰','۴','۲۴'],'۷ × ۳ = ۲۱'),
+ Q('math','ماشینی ۵ تا به ورودی اضافه می‌کنه و خروجی ۱۲ شده. ورودی چی بوده؟',['۷','۱۷','۶۰','۵'],'باید کار ماشین رو برعکس کنی: ۱۲ − ۵ = ۷'),
+ Q('math','ورودی‌های ۱ و ۲ و ۳ شدن ۴ و ۵ و ۶. ماشین چه کاری می‌کنه؟',['۳ تا اضافه می‌کنه','۴ برابر می‌کنه','۳ برابر می‌کنه','۳ تا کم می‌کنه'],'۱ + ۳ = ۴ و ۲ + ۳ = ۵ و ۳ + ۳ = ۶'),
+ Q('math','ماشینی اول عدد رو ۲ برابر می‌کنه و بعد ۱ تا اضافه می‌کنه. ورودی ۴ بشه خروجی چند؟',['۹','۱۰','۸','۱۳'],'اول ۴ × ۲ = ۸ و بعد ۸ + ۱ = ۹'),
+ Q('math','ماشینی اول عدد رو ۳ برابر می‌کنه و بعد ۲ تا کم می‌کنه. ورودی ۵ بشه خروجی چند؟',['۱۳','۹','۱۵','۱۰'],'اول ۵ × ۳ = ۱۵ و بعد ۱۵ − ۲ = ۱۳'),
+ Q('fa','درس اول و دوم فارسی به ترتیب چی هستن؟',['آفریدگار زیبایی، کوچ پرستوها','کوچ پرستوها، آفریدگار زیبایی','ارزش علم، کوچ پرستوها','آفریدگار زیبایی، ارزش علم'],'درس ۱ «آفریدگار زیبایی» و درس ۲ «کوچ پرستوها» است.'),
+ Q('fa','«از پس» یعنی چی؟',['از پشت','از جلو','از کنار','از بالا'],'از پس یعنی از پشت؛ مثل وقتی خورشید از پشت ابر دیده می‌شه.'),
+ Q('fa','«کوچ» یعنی چی؟',['مهاجرت','استراحت','غذا خوردن','ساختن لانه'],'کوچ یعنی مهاجرت و رفتن از جایی به جای دیگه.'),
+ Q('fa','«پی در پی» یعنی چی؟',['پشت سر هم','خیلی آهسته','یک‌دفعه','دور از هم'],'پی در پی یعنی پشت سر هم و پیوسته.'),
+ Q('fa','مخالف «آشکار» کدومه؟',['پنهان','واضح','روشن','پیدا'],'آشکار یعنی پیدا و معلوم، پس مخالفش پنهانه.'),
+ Q('fa','هم‌معنی «معلوم» کدومه؟',['مشخص','پنهان','دور','کم'],'معلوم یعنی مشخص و آشکار.'),
+ Q('fa','هم‌معنی «اوایل» کدومه؟',['آغاز','پایان','میانه','آخر'],'اوایل یعنی آغاز.'),
+ Q('fa','هم‌معنی «ناچار» کدومه؟',['مجبور','آزاد','شاد','تنها'],'ناچار یعنی مجبور.'),
+ Q('fa','هم‌معنی «لطیف» کدومه؟',['ملایم و دل‌پذیر','خشن','تلخ','تند'],'لطیف یعنی نرم و ملایم و دل‌پذیر؛ مثل هوای لطیف بهار.'),
+ Q('fa','هم‌معنی «دشوار» کدومه؟',['سخت','آسان','ساده','کوتاه'],'دشوار یعنی سخت.'),
+ Q('fa','کدوم کلمه هم‌خانواده‌ی «اوایل» است؟',['اول','آب','اواخر','باز'],'اوایل و اول هر دو از یک ریشه‌ان.'),
+ Q('fa','کدوم کلمه هم‌خانواده‌ی «معلوم» است؟',['علم','علف','مولود','عمل'],'معلوم از ریشه‌ی «علم» ساخته شده.'),
+ Q('fa','کدوم کلمه هم‌خانواده‌ی «آفریدگار» است؟',['آفرینش','آفتاب','آبرو','آوار'],'آفریدگار و آفرینش هر دو از «آفریدن» ساخته شدن.'),
+ Q('fa','کدوم کلمه هم‌خانواده‌ی «زیبا» است؟',['زیبایی','زیاد','زیرا','زین'],'زیبا و زیبایی از یک ریشه‌ان.'),
+ Q('fa','مخالف «اوایل» کدومه؟',['اواخر','آغاز','اول','بهار'],'اوایل یعنی آغاز، و مخالفش اواخره.'),
+ Q('fa','مخالف «معلوم» کدومه؟',['نامعلوم','مشخص','آشکار','پیدا'],'معلوم یعنی مشخص، و مخالفش نامعلومه.'),
+ Q('fa','مخالف «دشوار» کدومه؟',['آسان','سخت','مشکل','طولانی'],'دشوار یعنی سخت، و مخالفش آسانه.'),
+ Q('fa','مخالف «زیبا» کدومه؟',['زشت','قشنگ','خوب','بزرگ'],'مخالف زیبا زشته.'),
+ Q('fa','مخالف «لطیف» کدومه؟',['خشن','نرم','ملایم','خوشایند'],'لطیف یعنی نرم و ملایم، و مخالفش خشنه.'),
+ Q('sci','اولین مرحله‌ی کاوش چیه؟',['مشاهده','نتیجه‌گیری','پاسخ احتمالی','یادداشت‌برداری'],'کاوش با مشاهده شروع می‌شه.'),
+ Q('sci','بعد از مشاهده چه کاری می‌کنیم؟',['سؤال می‌پرسیم','نتیجه می‌گیریم','یادداشت می‌کنیم','تمومش می‌کنیم'],'بعد از مشاهده، سؤال می‌پرسیم؛ مثلاً «چرا این‌طوری شد؟»'),
+ Q('sci','«پاسخ احتمالی» یعنی چی؟',['حدسی که برای جواب سؤال می‌زنیم','جواب قطعی','یه مشاهده‌ی جدید','نتیجه‌ی آخر'],'پاسخ احتمالی حدسیه که برای جواب سؤال می‌زنیم و بعدش بررسی‌ش می‌کنیم.'),
+ Q('sci','ثبت چیزهایی که دیدیم یا اندازه گرفتیم کدوم مرحله‌ست؟',['یادداشت‌برداری','مشاهده','سؤال','پاسخ احتمالی'],'یادداشت‌برداری یعنی چیزهایی که دیدیم یا اندازه گرفتیم رو می‌نویسیم.'),
+ Q('sci','آخرین مرحله‌ی کاوش چیه؟',['نتیجه‌گیری','مشاهده','سؤال','پاسخ احتمالی'],'کاوش با نتیجه‌گیری تموم می‌شه.'),
+ Q('sci','کدوم یکی مخلوطه؟',['سالاد','میخ آهنی','طلای خالص','شکر خالص'],'سالاد از چند ماده‌ی مختلفه که با هم قاطی شدن.'),
+ Q('sci','آب و نمک وقتی با هم قاطی شن چی می‌شن؟',['مخلوط','ماده‌ی خالص','فلز','سنگ'],'آب و نمک دو ماده‌ان که قاطی شدن، پس مخلوطن.')
+];
+const QMODES=[
+ {id:'all',i:'🎯',t:'همه‌ی درس‌ها',d:'سؤال‌های تصادفی از همه‌ی بخش‌ها'},
+ {id:'math',i:'🧮',t:'ریاضی',d:'ماشین ورودی-خروجی'},
+ {id:'fa',i:'📖',t:'فارسی',d:'درس ۱ و ۲؛ هم‌معنی، هم‌خانواده و مخالف'},
+ {id:'sci',i:'🔬',t:'علوم',d:'زنگ علوم و مخلوط‌ها در زندگی'}
+];
+const QLEN=10,SUBJ={math:'🧮 ریاضی',fa:'📖 فارسی',sci:'🔬 علوم'};
+const shuffle=a=>{const x=[...a];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]];}return x;};
+let qz=null;
+const qBest=()=>store.get('quizbest',{});
+const qPool=m=>m==='all'?QZ:QZ.filter(x=>x.s===m);
+function qStart(mode){
+  const items=shuffle(qPool(mode)).slice(0,QLEN).map(q=>({q:q.q,e:q.e,s:q.s,opts:shuffle(q.o.map((t,k)=>({t,ok:k===0})))}));
+  qz={mode,items,i:0,score:0,wrong:[]};
+  qRender();
 }
-
-/* ---------- confetti ---------- */
-let parts_=[],raf=0;
-function confetti(n=140){
-  if(reduce)return;
-  const cv=$('#fx'),ctx=cv.getContext('2d');cv.width=innerWidth;cv.height=innerHeight;
-  const cols=['#22e6ff','#ff3dac','#b7ff3c','#ffb020','#8b6cff'];
-  for(let k=0;k<n;k++)parts_.push({x:innerWidth/2+(Math.random()-.5)*innerWidth*.5,y:innerHeight*.35,vx:(Math.random()-.5)*14,vy:-Math.random()*13-3,w:6+Math.random()*7,h:4+Math.random()*6,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:rnd(cols),life:0});
-  if(raf)return;
-  (function loop(){
-    ctx.clearRect(0,0,cv.width,cv.height);
-    parts_.forEach(p=>{p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.vx*=.99;p.r+=p.vr;p.life++;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.fillStyle=p.c;ctx.globalAlpha=Math.max(0,1-p.life/170);ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore();});
-    parts_=parts_.filter(p=>p.life<170&&p.y<cv.height+20);
-    if(parts_.length){raf=requestAnimationFrame(loop)}else{raf=0;ctx.clearRect(0,0,cv.width,cv.height)}
-  })();
+function qRender(){
+  if(!qz)qMenu();else if(qz.i>=qz.items.length)qResult();else qQuestion();
 }
-
-/* ---------- music ---------- */
-let AC,mt=0,step=0;
-const PAT=[[262,311,392,466,392,311,262,196],[220,262,330,392,330,262,220,165],[233,277,349,415,349,277,233,175],[196,247,294,392,294,247,196,147]];
-function note(f,type,len,vol){const o=AC.createOscillator(),g=AC.createGain();o.type=type;o.frequency.value=f;g.gain.setValueAtTime(.0001,AC.currentTime);g.gain.exponentialRampToValueAtTime(vol,AC.currentTime+.02);g.gain.exponentialRampToValueAtTime(.0001,AC.currentTime+len);o.connect(g);g.connect(AC.destination);o.start();o.stop(AC.currentTime+len+.05);}
-function toggleMusic(){
-  S.musicOn=!S.musicOn;
-  if(S.musicOn){
-    try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();AC.resume();}catch(e){S.musicOn=false;toast('مرورگرت از موسیقی پشتیبانی نمی‌کنه');return;}
-    mt=setInterval(()=>{const p=PAT[Math.floor(step/8)%PAT.length],f=p[step%8];note(f,step%2?'square':'triangle',.26,.05);if(step%4===0)note(f/2,'sawtooth',.4,.04);step++;},230);
-    toast('🎵 موسیقی روشن شد');
-  }else{clearInterval(mt);toast('🔇 موسیقی خاموش شد');}
-  $('#btnMusic').textContent=S.musicOn?'🎵':'🔇';$('#btnMusic').setAttribute('aria-pressed',S.musicOn);
+function qMenu(){
+  const best=qBest();
+  $('#quizBox').innerHTML=`<h3>🎓 ببین چقدر بلدی!</h3><p class="qnote">یه بخش انتخاب کن. بعد از هر سؤال، جواب درست و دلیلش رو می‌بینی. نتیجه‌ی آخر هم نمره از کل با ستاره‌ست.</p><div class="qmodes">${QMODES.map(m=>{const n=Math.min(QLEN,qPool(m.id).length),b=best[m.id];return `<button type="button" class="qmode" data-m="${m.id}"><span class="qi">${m.i}</span><b>${m.t}</b><small>${m.d}</small><small>${fa(n)} سؤال · ${b?`بهترین: ${fa(b.s)} از ${fa(b.t)}`:'هنوز امتحان نشده'}</small></button>`}).join('')}</div>`;
 }
-
-/* ---------- easter egg / gang mode ---------- */
-function applyGang(){document.body.classList.toggle('gangmode',S.gang);const b=$('#gangToggle');b.hidden=!c('secret');b.textContent=S.gang?'🌈 خاموش کردن حالت گنگ':'🌈 روشن کردن حالت گنگ';}
-function foundEgg(){
-  const first=!c('secret');
-  if(first){S.gang=true;store.set('gangmode',true);S.ctr.secret=1;store.set('ctr',S.ctr);confetti(220);addLog('🕵️','سر گنگ پیدا شد! حالت گنگ فعال شد');}
-  else{S.gang=!S.gang;store.set('gangmode',S.gang);}
-  $('#eggTxt').textContent=first?'عجب چشمی داری! حالت گنگ روشن شد و حالا هر جا کلیک کنی جرقه می‌پاشه 🔥':(S.gang?'حالت گنگ دوباره روشن شد 🌈':'حالت گنگ خاموش شد.');
-  applyGang();$('#eggDlg').showModal();
+function qQuestion(){
+  const it=qz.items[qz.i],n=qz.items.length;
+  $('#quizBox').innerHTML=`<div class="qtop"><span>سؤال ${fa(qz.i+1)} از ${fa(n)} · ${SUBJ[it.s]}</span><button class="btn sm ghost" type="button" data-a="menu">ترک کوییز</button></div><div class="bar"><i style="width:${qz.i/n*100}%"></i></div><h4 class="qq">${esc(it.q)}</h4><div class="qopts">${it.opts.map((o,k)=>`<button type="button" class="qopt" data-o="${k}">${esc(o.t)}</button>`).join('')}</div><div id="qfb" role="status" aria-live="polite"></div>`;
 }
-const hints=['تو این سایت یه جای مخفی هست که با یه کار خاص بازش می‌کنی... 🤔','لوگوی بالای صفحه رو ۷ بار پشت سر هم و سریع بزن.','یا اینکه با کیبورد، اسم تیم رو (gang) تایپ کن؛ یا اون کد معروف قدیمی بازی‌ها رو بزن: ↑ ↑ ↓ ↓ ← → ← → B A'];
-let hi=0,buf=[],logoClicks=0,logoT=0;
-const KONAMI='ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowRight,ArrowLeft,ArrowRight,KeyB,KeyA',GANGK='KeyG,KeyA,KeyN,KeyG';
-
-/* ---------- dialogs / keys ---------- */
-function keysHTML(){return SHORT.map(([k,t])=>`<kbd>${k}</kbd><span>${t}</span>`).join('');}
-function closeAll(){setDrawer(false);setMenu(false);$$('dialog[open]').forEach(d=>d.close());}
-
-/* ---------- backup ---------- */
-const KEYS=['theme','todos','hw','log','settings','ctr','gangmode'];
-const OLD_KEYS=['xp','ach','acts','chk']; // کلیدهای قدیمی (فقط برای پاک‌کردن کامل)
-function exportData(){const o={};KEYS.forEach(k=>o[k]=store.get(k,null));const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(o,null,2)],{type:'application/json'}));a.download='3gang-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast('💾 فایل پشتیبان ساخته شد');}
-function importData(file){const r=new FileReader();r.onload=()=>{try{const o=JSON.parse(r.result);if(!o||typeof o!=='object')throw 0;KEYS.forEach(k=>{if(o[k]!=null)store.set(k,o[k])});toast('📥 بازیابی شد؛ در حال بارگذاری مجدد...');setTimeout(()=>location.reload(),900);}catch(e){toast('⚠️ فایل معتبر نیست');}};r.readAsText(file);}
-
-/* ---------- init ---------- */
-function renderAll(){renderTodos();renderHW();renderNotifs();renderStats();}
-function init(){
-  buildNav();applyTheme();buildCountdowns();buildMembers();initTodos();initHW();
-  $('#keysList').innerHTML=keysHTML();$('#keysList2').innerHTML=keysHTML();
-  // settings
-  const inputs={start:'#setStart',end:'#setEnd',thu:'#setThu',fri:'#setFri'};
-  Object.entries(inputs).forEach(([k,s])=>{const el=$(s);el.value=S.set[k];el.addEventListener('change',()=>{if(!el.value){el.value=S.set[k];return;}const nv=Object.assign({},S.set,{[k]:el.value});if(nv.end<=nv.start){toast('⚠️ پایان مدرسه باید بعد از شروعش باشه');el.value=S.set[k];return;}S.set=nv;store.set('settings',S.set);lastSec=-1;tick();toast('⚙️ ذخیره شد');});});
-  $('#setReset').onclick=()=>{S.set=Object.assign({},DEF_SET);store.set('settings',S.set);Object.entries(inputs).forEach(([k,s])=>$(s).value=S.set[k]);lastSec=-1;tick();toast('زمان‌ها به پیش‌فرض برگشتن');};
-  // header
-  $('#btnTheme').onclick=toggleTheme;$('#btnMusic').onclick=toggleMusic;
-  $('#btnNotif').onclick=()=>setDrawer(!drawerOpen());$('#drawerClose').onclick=()=>setDrawer(false);$('#scrim').onclick=()=>setDrawer(false);
-  $('#btnKeys').onclick=()=>$('#keysDlg').showModal();
-  $('#btnMenu').onclick=()=>setMenu(!$('#mnav').classList.contains('open'));
-  $('#readAll').onclick=()=>markRead((window.__all||[]).map(x=>x.id));
-  $('#clearLog').onclick=()=>{S.log=[];store.set('log',S.log);renderNotifs();};
-  $('#notifList').addEventListener('click',e=>{const n=e.target.closest('.nt');if(n)markRead([n.dataset.id]);});
-  $$('dialog').forEach(d=>{d.addEventListener('click',e=>{if(e.target===d||e.target.closest('[data-close]'))d.close();});});
-  // fun
-  $('#luckBtn').onclick=rollLuck;$('#quoteBtn').onclick=()=>{newQuote();};
-  $('#quoteCopy').onclick=()=>{const t=$('#quoteT').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('📋 کپی شد')).catch(()=>{const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast('📋 کپی شد')}catch(e){toast('کپی نشد')}ta.remove();});};
-  newQuote();
-  // secret
-  $('#hintBtn').onclick=()=>{$('#hintBox').textContent=hints[Math.min(hi,hints.length-1)];hi++;};
-  $('#gangToggle').onclick=()=>{S.gang=!S.gang;store.set('gangmode',S.gang);applyGang();};
-  $('#logo').addEventListener('click',()=>{clearTimeout(logoT);logoClicks++;logoT=setTimeout(()=>logoClicks=0,1500);if(logoClicks>=7){logoClicks=0;foundEgg();}});
-  $('#expBtn').onclick=exportData;$('#impBtn').onclick=()=>$('#impFile').click();$('#impFile').onchange=e=>e.target.files[0]&&importData(e.target.files[0]);
-  $('#wipeBtn').onclick=()=>{if(confirm('همه‌ی اطلاعات (کارها، تکالیف، تنظیمات و ...) پاک بشه؟')){KEYS.concat(OLD_KEYS).forEach(k=>{try{localStorage.removeItem('g3:'+k)}catch(e){}});location.reload();}};
-  // sparks in gang mode
-  document.addEventListener('pointerdown',e=>{if(!S.gang||reduce)return;for(let k=0;k<6;k++){const s=document.createElement('span');s.className='spark';s.textContent=rnd(['🔥','⭐','✨','🎮','😎']);s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';s.style.setProperty('--dx',(Math.random()-.5)*160+'px');s.style.setProperty('--dy',(Math.random()-.8)*140+'px');document.body.appendChild(s);setTimeout(()=>s.remove(),900);}});
-  // keyboard
-  const map={KeyT:toggleTheme,KeyN:()=>setDrawer(!drawerOpen()),KeyM:toggleMusic,KeyC:()=>confetti(),KeyL:rollLuck,KeyQ:()=>{newQuote()},KeyH:()=>scrollTo({top:0,behavior:reduce?'auto':'smooth'})};
-  addEventListener('keydown',e=>{
-    if(e.key==='Escape'){closeAll();return;}
-    if(e.target.matches('input,textarea,select')||e.ctrlKey||e.metaKey||e.altKey)return;
-    buf.push(e.code);buf=buf.slice(-10);const s=buf.join(',');
-    if(s===KONAMI||s.endsWith(GANGK)){buf=[];foundEgg();return;}
-    const q=e.key==='?'||e.key==='؟'||(e.code==='Slash'&&e.shiftKey);
-    if(q){$('#keysDlg').showModal();return;}
-    if(map[e.code]){e.preventDefault();map[e.code]();}
+function qAnswer(k){
+  const it=qz.items[qz.i];if(it.picked!=null)return;it.picked=k;
+  const ok=it.opts[k].ok;if(ok)qz.score++;else qz.wrong.push(it);
+  $$('#quizBox .qopt').forEach((b,j)=>{b.disabled=true;if(it.opts[j].ok)b.classList.add('right');else if(j===k)b.classList.add('wrong');});
+  const last=qz.i===qz.items.length-1,right=it.opts.find(o=>o.ok).t;
+  $('#qfb').innerHTML=`<div class="qexp ${ok?'ok':'no'}"><b>${ok?'✅ آفرین، درسته!':'❌ این یکی نه'}</b>${ok?'':`<p>جواب درست: ${esc(right)}</p>`}<p>${esc(it.e)}</p></div><button class="btn main" type="button" data-a="next">${last?'دیدن نتیجه':'سؤال بعدی'}</button>`;
+  const nb=$('#qfb .btn');if(nb)nb.focus({preventScroll:true});
+}
+function qResult(){
+  const n=qz.items.length,s=qz.score,r=s/n,stars=r>=.9?3:r>=.6?2:1;
+  const best=qBest(),prev=best[qz.mode];let rec;
+  if(!prev||s>prev.s){best[qz.mode]={s,t:n};store.set('quizbest',best);nfQuizRecord(qz.mode,s,n,!!prev);rec=prev?`🎉 رکورد جدید! رکورد قبلی: ${fa(prev.s)} از ${fa(prev.t)}`:'🎉 اولین رکوردت ثبت شد!';}
+  else rec=`رکورد شخصی تو: ${fa(prev.s)} از ${fa(prev.t)}`;
+  const msg=stars===3?'عالی بود! 🔥':stars===2?'آفرین، خیلی خوب بود! 😎':'یه بار دیگه مرور کن و دوباره امتحان کن 💪';
+  const rev=qz.wrong.length?`<h4 style="margin:18px 0 0;text-align:right">مرور اشتباه‌ها</h4><ul class="qrev">${qz.wrong.map(w=>`<li><b>${esc(w.q)}</b><span>جواب درست: ${esc(w.opts.find(o=>o.ok).t)}</span><small>${esc(w.e)}</small></li>`).join('')}</ul>`:'';
+  $('#quizBox').innerHTML=`<div class="qres"><div class="qstars" aria-label="${fa(stars)} ستاره">${[1,2,3].map(k=>`<span class="${k<=stars?'':'off'}">⭐</span>`).join('')}</div><div class="qscore">${fa(s)} از ${fa(n)}</div><p style="margin:4px 0"><b>${msg}</b></p><p style="margin:0;color:var(--muted)">${rec}</p><div class="row2" style="justify-content:center;margin-top:14px"><button class="btn main" type="button" data-a="again">🔁 دوباره</button><button class="btn" type="button" data-a="menu">انتخاب بخش</button></div>${rev}</div>`;
+  if(stars===3)confetti(100);
+}
+function initQuiz(){
+  const box=$('#quizBox');
+  const top=()=>box.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+  box.addEventListener('click',e=>{
+    const b=e.target.closest('button');if(!b)return;
+    if(b.dataset.m){qStart(b.dataset.m);top();return;}
+    if('o' in b.dataset){if(qz)qAnswer(+b.dataset.o);return;}
+    const a=b.dataset.a;
+    if(a==='next'){qz.i++;qRender();top();}
+    else if(a==='again'){qStart(qz.mode);top();}
+    else if(a==='menu'){qz=null;qRender();}
   });
-  // go
-  applyGang();renderAll();tick();setInterval(tick,250);
-  if(!reduce&&dayIdx(new Date())>=5&&!sessionStorage.getItem('g3:cf')){sessionStorage.setItem('g3:cf','1');setTimeout(()=>confetti(120),900);}
+  qRender();
 }
-init();
-})();
-</script>
-</body>
-</html>
+
+/* ---------- school exam ---------- */
+const EX_CHEAT=true; // false = بررسی خروج از صفحه کاملاً خاموش (بقیه‌ی آزمون بدون تغییر کار می‌کنه)
+const EX_COUNT=10,EX_IDLE_MS=60000,EX_FLAG_AT=3;
+const exQ=(q,ok,w)=>({q,ok,w});
+const EX_BANK=[
+ exQ('هم‌معنی «معلوم» کدام است؟','مشخص',['پنهان','دور','کم']),
+ exQ('هم‌معنی «اوایل» کدام است؟','آغاز',['پایان','میانه','آخر']),
+ exQ('هم‌معنی «ناچار» کدام است؟','مجبور',['آزاد','شاد','تنها']),
+ exQ('هم‌معنی «لطیف» کدام است؟','ملایم و دل‌پذیر',['خشن','تلخ','تند']),
+ exQ('هم‌معنی «دشوار» کدام است؟','سخت',['آسان','ساده','کوتاه']),
+ exQ('کدام کلمه هم‌خانواده‌ی «اوایل» است؟','اول',['آب','اواخر','باز']),
+ exQ('کدام کلمه هم‌خانواده‌ی «معلوم» است؟','علم',['علف','مولود','عمل']),
+ exQ('کدام کلمه هم‌خانواده‌ی «آفریدگار» است؟','آفرینش',['آفتاب','آبرو','آوار']),
+ exQ('کدام کلمه هم‌خانواده‌ی «زیبا» است؟','زیبایی',['زیاد','زیرا','زین']),
+ exQ('مخالف «اوایل» کدام است؟','اواخر',['آغاز','اول','بهار']),
+ exQ('مخالف «معلوم» کدام است؟','نامعلوم',['مشخص','آشکار','پیدا']),
+ exQ('مخالف «دشوار» کدام است؟','آسان',['سخت','مشکل','طولانی']),
+ exQ('مخالف «زیبا» کدام است؟','زشت',['قشنگ','خوب','بزرگ']),
+ exQ('مخالف «لطیف» کدام است؟','خشن',['نرم','ملایم','خوشایند']),
+ exQ('اولین مرحله‌ی بررسی علمی چیست؟','مشاهده',['نتیجه‌گیری','پاسخ احتمالی','یادداشت‌برداری']),
+ exQ('بعد از مشاهده چه می‌کنیم؟','سؤال می‌پرسیم',['نتیجه می‌گیریم','یادداشت می‌کنیم','کار را تمام می‌کنیم']),
+ exQ('«پاسخ احتمالی» یعنی چه؟','حدسی برای پاسخ به سؤال',['جواب قطعی و نهایی','یک مشاهده‌ی جدید','نتیجه‌ی آخر کار']),
+ exQ('اطلاعاتی را که دیده‌ایم یا اندازه گرفته‌ایم چه می‌کنیم؟','یادداشت‌برداری',['فراموش می‌کنیم','پاک می‌کنیم','فقط حدس می‌زنیم']),
+ exQ('آخرین مرحله‌ی بررسی علمی چیست؟','نتیجه‌گیری',['مشاهده','سؤال','پاسخ احتمالی']),
+ exQ('ترتیب درست مراحل بررسی علمی کدام است؟','مشاهده، سؤال، پاسخ احتمالی، یادداشت‌برداری، نتیجه‌گیری',['سؤال، مشاهده، پاسخ احتمالی، یادداشت‌برداری، نتیجه‌گیری','مشاهده، پاسخ احتمالی، سؤال، نتیجه‌گیری، یادداشت‌برداری','مشاهده، سؤال، یادداشت‌برداری، پاسخ احتمالی، نتیجه‌گیری']),
+ exQ('کدام مورد مخلوط است؟','سالاد',['میخ آهنی','طلای خالص','شکر خالص']),
+ exQ('ترکیب آب و نمک چه چیزی ایجاد می‌کند؟','مخلوط',['ماده‌ی خالص','فلز','سنگ']),
+ exQ('ماشینی ابتدا عدد را در ۲ ضرب می‌کند و سپس ۳ واحد اضافه می‌کند. اگر ورودی ۴ باشد، خروجی چند است؟','۱۱',['۱۴','۸','۷']),
+ exQ('ماشینی ابتدا عدد را در ۳ ضرب می‌کند و سپس ۱ واحد کم می‌کند. اگر ورودی ۵ باشد، خروجی چند است؟','۱۴',['۱۲','۱۵','۱۶'])
+];
+const EX_CHEER=['هیچ عجله‌ای نیست؛ با آرامش فکر کن 🌿','خودت می‌تونی! گزینه‌ها رو یکی‌یکی بررسی کن 💪','اگه مطمئن نیستی، قوی‌ترین حدست رو انتخاب کن 😉','تو از پسش برمیای؛ ادامه بده! ⭐','یه نفس عمیق بکش و سؤال رو دوباره بخون 😌'];
+let exS=null,exName=null,exSound=true,exCtx=null,exHiddenAt=0;
+const exShuffle=a=>{const x=a.slice();for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)),t=x[i];x[i]=x[j];x[j]=t;}return x;};
+const exPick=()=>exShuffle(EX_BANK).slice(0,EX_COUNT).map(b=>({q:b.q,opts:exShuffle([{t:b.ok,ok:true}].concat(b.w.map(t=>({t,ok:false})))),picked:-1,locked:false}));
+const exSndLabel=()=>exSound?'🔊 صدا روشن':'🔇 صدا خاموش';
+function exWarmAudio(){try{if(!exSound)return;exCtx=exCtx||new (window.AudioContext||window.webkitAudioContext)();if(exCtx.resume)exCtx.resume();}catch(e){}}
+function exBeep(ok){
+  if(!exSound)return;
+  try{
+    exWarmAudio();if(!exCtx)return;
+    const t0=exCtx.currentTime,seq=ok?[[660,0],[880,.12]]:[[220,0],[180,.14]];
+    seq.forEach(([f,d])=>{const o=exCtx.createOscillator(),g=exCtx.createGain();o.type=ok?'sine':'triangle';o.frequency.value=f;g.gain.setValueAtTime(.0001,t0+d);g.gain.exponentialRampToValueAtTime(.06,t0+d+.02);g.gain.exponentialRampToValueAtTime(.0001,t0+d+.22);o.connect(g);g.connect(exCtx.destination);o.start(t0+d);o.stop(t0+d+.25);});
+  }catch(e){}
+}
+function exClearIdle(){if(exS&&exS.idleT){clearTimeout(exS.idleT);exS.idleT=0;}}
+function exArmIdle(){
+  exClearIdle();
+  if(!exS||exS.phase!=='run'||exS.cheers>=3||exS.items[exS.i].locked)return;
+  exS.idleT=setTimeout(()=>{
+    if(!exS||exS.phase!=='run'||document.hidden||exS.items[exS.i].locked)return;
+    toast(EX_CHEER[exS.cheers%EX_CHEER.length]);exS.cheers++;exArmIdle();
+  },EX_IDLE_MS);
+}
+function exLeaveWarn(){
+  exS.leaves++;
+  exS.warn=`⚠️ از صفحه‌ی آزمون خارج شدی (${fa(exS.leaves)} بار). لطفاً تا پایان آزمون همین‌جا بمون.${exS.leaves>=EX_FLAG_AT?' این آزمون برای بررسی معلم علامت‌گذاری شد.':''}`;
+  const w=$('#exWarn');if(w)w.textContent=exS.warn;
+  toast('⚠️ از صفحه‌ی آزمون خارج شدی');
+}
+function exStartHTML(){
+  return `<h3>📝 آزمون مدرسه</h3><p class="exm-note">${fa(EX_COUNT)} سؤال تصادفی از فارسی، علوم و ریاضی. هر سؤال ۱ نمره دارد و نمره‌ی کل از ${fa(EX_COUNT)} حساب می‌شود.</p><div class="exm-names"><label>نام<input type="text" id="exFirst" maxlength="30" autocomplete="off"></label><label>نام خانوادگی<input type="text" id="exLast" maxlength="40" autocomplete="off"></label></div><ul class="exm-rules"><li>سؤال‌ها تصادفی‌اند و در یک آزمون تکراری نمی‌شوند.</li><li>بعد از «ثبت پاسخ»، دیگر نمی‌توانی پاسخ همان سؤال را عوض کنی.</li><li>پاسخ‌های درست بعد از پایان آزمون نشان داده می‌شوند.</li><li>خودت جواب بده و از کتاب یا کمک دیگران استفاده نکن.</li>${EX_CHEAT?'<li>اگر وسط آزمون از صفحه خارج شوی، هشدار می‌گیری و خروج‌ها در نتیجه ثبت می‌شوند.</li>':''}</ul><div class="exm-err" id="exErr" role="alert"></div><div class="row2"><button class="btn main" type="button" data-ea="start">▶️ شروع آزمون</button><button class="btn" type="button" data-ea="snd">${exSndLabel()}</button></div>`;
+}
+function exQuestionHTML(){
+  const it=exS.items[exS.i];
+  return `<div class="exm-top"><span>سؤال ${fa(exS.i+1)} از ${fa(EX_COUNT)}</span><span>👤 ${esc(exName.f)} ${esc(exName.l)}</span><button class="btn sm ghost" type="button" data-ea="snd">${exSndLabel()}</button></div><div class="bar"><i style="width:${exS.i/EX_COUNT*100}%"></i></div><div class="exm-warn" id="exWarn" role="alert">${esc(exS.warn)}</div><h4 class="exm-q">${esc(it.q)}</h4><div class="exm-opts">${it.opts.map((o,k)=>`<button type="button" class="exm-opt" data-eo="${k}" aria-pressed="false">${esc(o.t)}</button>`).join('')}</div><div class="exm-act"><button class="btn main" type="button" data-ea="submit" disabled>ثبت پاسخ</button></div>`;
+}
+function exMsg(s,nm){
+  if(s===EX_COUNT)return `عالی بود ${nm}! نمره‌ی کامل گرفتی 🔥🏆`;
+  if(s>=8)return `آفرین ${nm}! خیلی خوب بودی؛ یه ذره مونده تا نمره‌ی کامل 😎`;
+  if(s>=6)return `خوبه ${nm}! با یه مرور کوچیک می‌تونی عالی بشی 💪`;
+  if(s>=4)return `تلاشت خوب بود ${nm}؛ دوباره مرور کن، حتماً بهتر می‌شی 🌱`;
+  return `اشکالی نداره ${nm}! همه از یه جایی شروع می‌کنن. درس‌ها رو مرور کن و دوباره امتحان بده، می‌تونی! 🌟`;
+}
+function exResultHTML(){
+  const s=exS.correct,w=EX_COUNT-s,secs=Math.max(1,Math.round((exS.t1-exS.t0)/1000)),dur=`${fa(pad(Math.floor(secs/60)))}:${fa(pad(secs%60))}`;
+  const d=new Date(exS.t1),when=`${fJal.format(d)} · ${fa(pad(d.getHours()))}:${fa(pad(d.getMinutes()))}`;
+  const flag=EX_CHEAT&&exS.leaves?`<p class="exm-flag">${exS.leaves>=EX_FLAG_AT?'🚩 این آزمون برای بررسی علامت‌گذاری شد. ':''}خروج از صفحه: ${fa(exS.leaves)} بار <small>(ممکن است گاهی هشدار اشتباه هم ثبت شده باشد)</small></p>`:'';
+  const rev=exS.items.map((it,k)=>{const ok=it.opts[it.picked].ok;return `<li class="${ok?'ok':'no'}"><b>${fa(k+1)}) ${esc(it.q)}</b><small>پاسخ تو: ${esc(it.opts[it.picked].t)} ${ok?'✅':'❌'}</small><small>پاسخ درست: <b>${esc(it.opts.find(o=>o.ok).t)}</b></small></li>`;}).join('');
+  return `<div class="exm-res"><h3>📋 نتیجه‌ی آزمون</h3><p class="exm-meta">👤 ${esc(exName.f)} ${esc(exName.l)} · ${when} · مدت: ${dur}</p><div class="exm-score">${fa(s)} از ${fa(EX_COUNT)}</div><div class="exm-stats"><span class="g">✅ درست: ${fa(s)}</span><span class="r">❌ غلط: ${fa(w)}</span></div><p style="margin:6px 0"><b>${exMsg(s,esc(exName.f))}</b></p>${flag}<div class="row2" style="justify-content:center;margin-top:14px"><button class="btn main" type="button" data-ea="again">🔁 آزمون مجدد</button><button class="btn" type="button" data-ea="new">دانش‌آموز جدید</button></div><h4 style="margin:18px 0 0;text-align:right">مرور پاسخ‌ها</h4><ul class="exm-rev">${rev}</ul></div>`;
+}
+function exRender(){
+  const b=$('#examBox');
+  b.innerHTML=!exS?exStartHTML():exS.phase==='run'?exQuestionHTML():exResultHTML();
+}
+function exStart(){
+  const f=$('#exFirst').value.trim(),l=$('#exLast').value.trim();
+  if(!f||!l){
+    $('#exErr').textContent=!f&&!l?'اول نام و نام خانوادگی‌ات را وارد کن.':!f?'نام را وارد کن.':'نام خانوادگی را وارد کن.';
+    (f?$('#exLast'):$('#exFirst')).focus();return false;
+  }
+  exName={f,l};exBegin();return true;
+}
+function exBegin(){
+  exWarmAudio();
+  exS={phase:'run',items:exPick(),i:0,correct:0,leaves:0,cheers:0,t0:Date.now(),t1:0,warn:'',idleT:0};
+  exRender();exArmIdle();
+}
+function exSelect(k){
+  const it=exS.items[exS.i];if(it.locked)return;it.picked=k;
+  $$('#examBox .exm-opt').forEach((b,j)=>{b.classList.toggle('sel',j===k);b.setAttribute('aria-pressed',j===k);});
+  const sb=$('#examBox [data-ea=submit]');if(sb)sb.disabled=false;
+}
+function exSubmit(){
+  const it=exS.items[exS.i];if(it.locked||it.picked<0)return;
+  it.locked=true;const ok=it.opts[it.picked].ok;if(ok)exS.correct++;
+  exBeep(ok);exClearIdle();
+  $$('#examBox .exm-opt').forEach(b=>b.disabled=true);
+  $('#examBox .exm-act').innerHTML=`<span class="exm-done">✔️ پاسخ تو ثبت شد</span><button class="btn main" type="bu
